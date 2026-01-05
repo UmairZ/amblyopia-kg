@@ -215,7 +215,7 @@ def build_graph_for_block(
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--excel", required=True, help="Path to concepts .xlsx")
-    ap.add_argument("--sheet", default="Concepts", help="Sheet name (default: Concepts)")
+    ap.add_argument("--sheet", default="concepts", help="Sheet name (default: concepts)")
     ap.add_argument("--base-uri", required=True, help="Base URI, e.g. https://example.org/vocab/")
     ap.add_argument("--outdir", default="out_ttl", help="Output directory (default: out_ttl)")
     ap.add_argument("--lang", default="en", help="Language tag (default: en)")
