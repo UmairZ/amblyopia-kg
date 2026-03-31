@@ -141,6 +141,7 @@ nav { flex: 1; padding: 8px 0 24px; }
   align-items: center;
   gap: 8px;
   padding: 7px 20px;
+  min-height: 44px;
   font-size: 13px;
   color: #8ba4cc;
   text-decoration: none;
@@ -166,9 +167,9 @@ main {
 }
 
 .section {
-  padding: 56px 60px;
+  padding: clamp(28px, 6vw, 56px) clamp(16px, 6vw, 60px);
   border-bottom: 1px solid var(--rule);
-  max-width: 980px;
+  max-width: min(980px, calc(100vw - var(--sidebar-w) - 40px));
 }
 
 .section-header {
@@ -186,7 +187,7 @@ main {
 }
 .section-title {
   font-family: 'Lora', serif;
-  font-size: 28px;
+  font-size: clamp(20px, 3.5vw, 28px);
   font-weight: 600;
   color: var(--ink);
   line-height: 1.2;
@@ -216,7 +217,7 @@ p { color: var(--ink2); margin-bottom: 12px; line-height: 1.7; }
 /* ── HERO ── */
 #hero {
   background: var(--navy);
-  padding: 72px 60px 56px;
+  padding: clamp(28px, 6vw, 72px) clamp(16px, 6vw, 60px) clamp(28px, 5vw, 56px);
   border-bottom: none;
   max-width: none;
   position: relative;
@@ -245,7 +246,7 @@ p { color: var(--ink2); margin-bottom: 12px; line-height: 1.7; }
 }
 .hero-title {
   font-family: 'Lora', serif;
-  font-size: 42px;
+  font-size: clamp(24px, 5vw, 42px);
   font-weight: 600;
   color: #fff;
   line-height: 1.15;
@@ -348,7 +349,7 @@ p { color: var(--ink2); margin-bottom: 12px; line-height: 1.7; }
 
 .flow-question {
   font-family: 'Lora', serif;
-  font-size: 20px;
+  font-size: clamp(16px, 2.5vw, 20px);
   font-weight: 600;
   color: var(--ink);
   margin-bottom: 10px;
@@ -525,7 +526,7 @@ p { color: var(--ink2); margin-bottom: 12px; line-height: 1.7; }
 /* ── CONCEPT CARDS ── */
 .concept-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 14px;
   margin: 20px 0;
 }
@@ -617,7 +618,7 @@ p { color: var(--ink2); margin-bottom: 12px; line-height: 1.7; }
 .anno-example-body { padding: 20px; }
 .anno-text {
   font-family: 'Lora', serif;
-  font-size: 18px;
+  font-size: clamp(15px, 2.5vw, 18px);
   color: var(--ink);
   line-height: 1.9;
   margin-bottom: 20px;
@@ -640,7 +641,7 @@ span[class^="span-"].selected { filter: brightness(0.9); outline: 2px solid curr
 
 .anno-detail {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 10px;
 }
 .anno-span-detail {
@@ -781,7 +782,7 @@ table.rel-table tr:hover td { background: var(--cream); }
 /* ── MODIFIER CARDS ── */
 .mod-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 14px;
   margin: 20px 0;
 }
@@ -882,20 +883,120 @@ table.qr-table tr:hover td { background: var(--cream); }
 #sidebar::-webkit-scrollbar-track { background: transparent; }
 #sidebar::-webkit-scrollbar-thumb { background: var(--navy-border); border-radius: 2px; }
 
+/* ── MOBILE NAV ── */
+#mobile-bar {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 56px;
+  background: var(--navy);
+  border-bottom: 1px solid var(--navy-border);
+  z-index: 200;
+  align-items: center;
+  padding: 0 16px;
+  gap: 12px;
+}
+#hamburger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex-shrink: 0;
+}
+#hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+#hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+#hamburger.open span:nth-child(2) { opacity: 0; }
+#hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+#mobile-title {
+  font-family: 'Lora', serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 149;
+}
+#sidebar-overlay.visible { display: block; }
+
 /* ── RESPONSIVE ── */
+
+/* Tablet & below: slide-in sidebar drawer */
 @media (max-width: 900px) {
-  :root { --sidebar-w: 0px; }
-  #sidebar { display: none; }
-  main { margin-left: 0; }
-  .section { padding: 40px 24px; }
+  :root { --sidebar-w: 280px; }
+
+  #mobile-bar { display: flex; }
+
+  #sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+    z-index: 150;
+    top: 0;
+  }
+  #sidebar.open { transform: translateX(0); }
+
+  main {
+    margin-left: 0;
+    padding-top: 56px;
+  }
+
+  /* section max-width: full width minus mobile padding */
+  .section { max-width: 100%; }
+
+  .rel-table-wrap, .qr-table-wrap, .inv-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+  .workflow-steps { flex-direction: column; gap: 10px; }
+  .step-arrow { display: none; }
+  .workflow-step { min-width: unset; }
+
+  .anno-rel-row { flex-wrap: wrap; gap: 6px; }
+}
+
+/* Mid: collapse multi-column layouts before things get cramped */
+@media (max-width: 720px) {
   .attr-grid { grid-template-columns: 1fr; }
   .dodont-grid { grid-template-columns: 1fr; }
   .two-col { grid-template-columns: 1fr; }
-  #hero { padding: 40px 24px; }
+  .anno-detail { grid-template-columns: 1fr; }
 }
-@media (max-width: 600px) {
+
+/* Phone: single column everything, tighten further */
+@media (max-width: 540px) {
   .concept-grid { grid-template-columns: 1fr; }
-  .hero-stats { flex-direction: column; gap: 16px; }
+  .mod-grid { grid-template-columns: 1fr; }
+  .attr-grid { grid-template-columns: 1fr; }
+  .dodont-grid { grid-template-columns: 1fr; }
+  .anno-detail { grid-template-columns: 1fr; }
+
+  /* Hide inv-table Parent column to prevent overflow */
+  table.inv-table th:last-child,
+  table.inv-table td:last-child { display: none; }
+
+  table.inv-table th, table.inv-table td { padding: 6px 8px; }
+
+  /* Flowchart container tighter on phone */
+  #flowchart-container { padding: 20px 16px; }
+
+  /* Flow buttons stack on very narrow screens */
+  .flow-options { flex-direction: column; }
+  .flow-btn { width: 100%; text-align: center; }
 }
 
 /* ── RELATIONSHIP VISUALIZATION ── */
@@ -1089,6 +1190,15 @@ table.inv-table tr:hover td { background: var(--cream); }
 </style>
 </head>
 <body>
+
+<!-- ═══ MOBILE BAR ═══ -->
+<div id="mobile-bar">
+  <button id="hamburger" onclick="toggleSidebar()" aria-label="Open navigation">
+    <span></span><span></span><span></span>
+  </button>
+  <span id="mobile-title">Annotation Guidelines V4</span>
+</div>
+<div id="sidebar-overlay" onclick="closeSidebar()"></div>
 
 <!-- ═══ SIDEBAR ═══ -->
 <aside id="sidebar">
@@ -2322,6 +2432,21 @@ const navLinks = document.querySelectorAll('.nav-link');
 function navTo(id) {
   const el = document.getElementById(id);
   if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  closeSidebar();
+}
+
+// ── MOBILE SIDEBAR ──
+function toggleSidebar() {
+  const open = document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('hamburger').classList.toggle('open', open);
+  document.getElementById('sidebar-overlay').classList.toggle('visible', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+}
+function closeSidebar() {
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+  document.getElementById('sidebar-overlay').classList.remove('visible');
+  document.body.style.overflow = '';
 }
 
 const sectionNavMap = { hero: 0, overview: 0, decision: 1, eligible: 2, attributes: 3, relationships: 4, dodont: 5, concepts: 6, modifiers: 7, examples: 8, quickref: 9, inventory: 10 };
