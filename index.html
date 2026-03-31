@@ -24,7 +24,7 @@
   --dx: #3b6fd4;       --dx-bg: #eef3fc;   --dx-light: #dce8fb;
   --sx: #7c4dbb;       --sx-bg: #f3eef9;   --sx-light: #e8ddf6;
   --exam: #0891b2;     --exam-bg: #e0f6fb; --exam-light: #c9eef7;
-  --tx: #15803d;       --tx-bg: #e7f6ee;   --tx-light: #d1edd e;
+  --tx: #15803d;       --tx-bg: #e7f6ee;   --tx-light: #d1edde;
   --proc: #5046e5;     --proc-bg: #eeecfd; --proc-light: #dddafb;
   --out: #b45309;      --out-bg: #fef3e2;  --out-light: #fde8c4;
   --ad: #be185d;       --ad-bg: #fde8f2;   --ad-light: #fbcfe8;
@@ -1566,13 +1566,13 @@ table.inv-table tr:hover td { background: var(--cream); }
           <td><span class="rel-name-cell">has_onset</span></td>
           <td>Dx, Sx</td>
           <td>Temporal</td>
-          <td><span class="rel-allowed yes">✓</span> <span class="rel-example-text">"crossing since age 2" → Sx has_onset TemporalAge</span></td>
+          <td><span class="rel-allowed yes">✓</span> <span class="rel-example-text">"crossing since age 2" → Sx has_onset Age</span></td>
         </tr>
         <tr>
           <td><span class="rel-name-cell">has_adherence</span></td>
           <td>Treatment</td>
           <td>Adherence</td>
-          <td><span class="rel-allowed yes">✓</span> <span class="rel-example-text">"never wore them" → Tx has_adherence AdherencePoor</span></td>
+          <td><span class="rel-allowed yes">✓</span> <span class="rel-example-text">"never wore them" → Tx has_adherence Poor adherence</span></td>
         </tr>
         <tr>
           <td><span class="rel-name-cell">has_regimen</span></td>
@@ -1608,7 +1608,7 @@ table.inv-table tr:hover td { background: var(--cream); }
           <td><span class="rel-name-cell">has_scheduling</span></td>
           <td>Treatment, Plan</td>
           <td>Temporal</td>
-          <td><span class="rel-allowed yes">✓</span> <span class="rel-example-text">"RTC 3 months" → Plan has_scheduling TemporalDuration</span></td>
+          <td><span class="rel-allowed yes">✓</span> <span class="rel-example-text">"RTC 3 months" → Plan has_scheduling Duration</span></td>
         </tr>
       </tbody>
     </table>
@@ -1650,7 +1650,7 @@ table.inv-table tr:hover td { background: var(--cream); }
     <div class="dd-card do">
       <div class="dd-head">✓ Do</div>
       <div class="dd-text">Link laterality only when explicitly stated in the free text.</div>
-      <div class="dd-example">"Amblyopia left eye" → DiagAmblyopia <strong>has_laterality</strong> LateralityLeftEye</div>
+      <div class="dd-example">"Amblyopia left eye" → Amblyopia <strong>has_laterality</strong> Left eye</div>
     </div>
     <div class="dd-card dont">
       <div class="dd-head">✗ Don't</div>
@@ -1662,7 +1662,7 @@ table.inv-table tr:hover td { background: var(--cream); }
     <div class="dd-card do">
       <div class="dd-head">✓ Do</div>
       <div class="dd-text">Annotate symptoms mentioned in narrative HPI or Assessment.</div>
-      <div class="dd-example">"Mom reports the left eye crosses intermittently" → SympCrossing + Laterality + Pattern</div>
+      <div class="dd-example">"Mom reports the left eye crosses intermittently" → Crossing + Laterality + Pattern</div>
     </div>
     <div class="dd-card dont">
       <div class="dd-head">✗ Don't</div>
@@ -1674,7 +1674,7 @@ table.inv-table tr:hover td { background: var(--cream); }
     <div class="dd-card do">
       <div class="dd-head">✓ Do</div>
       <div class="dd-text">Split compound phrases into separate concepts when no single ontology match exists.</div>
-      <div class="dd-example">"anisometropic esotropia" → DiagAnisometropia + DiagEsotropia (two separate spans)</div>
+      <div class="dd-example">"anisometropic esotropia" → Anisometropia + Esotropia (two separate spans)</div>
     </div>
     <div class="dd-card dont">
       <div class="dd-head">✗ Don't</div>
@@ -1733,9 +1733,9 @@ table.inv-table tr:hover td { background: var(--cream); }
           <span class="rel-chip">has_laterality</span><span class="rel-chip">has_severity</span><span class="rel-chip">has_pattern</span><span class="rel-chip">has_onset</span>
         </div>
         <div class="concept-examples">
-          <div class="concept-example"><span class="ex-text">"anisometropic amblyopia"</span><span class="ex-arrow">→</span>DiagAnisometropicAmblyopia</div>
-          <div class="concept-example"><span class="ex-text">"residual esotropia"</span><span class="ex-arrow">→</span>DiagEsotropia + PatternResidual</div>
-          <div class="concept-example"><span class="ex-text">"amblyopia suspect"</span><span class="ex-arrow">→</span>DiagAmblyopiaSuspect</div>
+          <div class="concept-example"><span class="ex-text">"anisometropic amblyopia"</span><span class="ex-arrow">→</span>Anisometropic amblyopia</div>
+          <div class="concept-example"><span class="ex-text">"residual esotropia"</span><span class="ex-arrow">→</span>Esotropia + Residual</div>
+          <div class="concept-example"><span class="ex-text">"amblyopia suspect"</span><span class="ex-arrow">→</span>Amblyopia suspect</div>
         </div>
       </div>
     </div>
@@ -1752,8 +1752,8 @@ table.inv-table tr:hover td { background: var(--cream); }
           <span class="rel-chip">has_laterality</span><span class="rel-chip">has_onset</span><span class="rel-chip">has_pattern</span><span class="rel-chip">has_severity</span>
         </div>
         <div class="concept-examples">
-          <div class="concept-example"><span class="ex-text">"left eye crosses"</span><span class="ex-arrow">→</span>SympCrossing + LateralityLeft</div>
-          <div class="concept-example"><span class="ex-text">"eye drifting intermittently"</span><span class="ex-arrow">→</span>SympDrifting + PatternIntermittent</div>
+          <div class="concept-example"><span class="ex-text">"left eye crosses"</span><span class="ex-arrow">→</span>Crossing + Left eye</div>
+          <div class="concept-example"><span class="ex-text">"eye drifting intermittently"</span><span class="ex-arrow">→</span>Drifting + Intermittent</div>
         </div>
       </div>
     </div>
@@ -1770,8 +1770,8 @@ table.inv-table tr:hover td { background: var(--cream); }
           <span class="rel-chip">has_laterality</span><span class="rel-chip">has_pattern</span><span class="rel-chip">has_severity</span>
         </div>
         <div class="concept-examples">
-          <div class="concept-example"><span class="ex-text">"one line of difference"</span><span class="ex-arrow">→</span>ExamInterocularDiff1Line</div>
-          <div class="concept-example"><span class="ex-text">"moderate left face turn"</span><span class="ex-arrow">→</span>ExamAbnormalHeadPosture</div>
+          <div class="concept-example"><span class="ex-text">"one line of difference"</span><span class="ex-arrow">→</span>Interocular difference (less than 1 line)</div>
+          <div class="concept-example"><span class="ex-text">"moderate left face turn"</span><span class="ex-arrow">→</span>Abnormal head posture</div>
         </div>
       </div>
     </div>
@@ -1788,8 +1788,8 @@ table.inv-table tr:hover td { background: var(--cream); }
           <span class="rel-chip">has_fixation_context</span>
         </div>
         <div class="concept-examples">
-          <div class="concept-example"><span class="ex-text">"attempt Teller visual acuity"</span><span class="ex-arrow">→</span>TestVisualAcuity</div>
-          <div class="concept-example"><span class="ex-text">"stereo testing at near next visit"</span><span class="ex-arrow">→</span>TestStereoacuity + FixationNear</div>
+          <div class="concept-example"><span class="ex-text">"attempt Teller visual acuity"</span><span class="ex-arrow">→</span>Visual acuity test</div>
+          <div class="concept-example"><span class="ex-text">"stereo testing at near next visit"</span><span class="ex-arrow">→</span>Stereoacuity test + Near</div>
         </div>
       </div>
     </div>
@@ -1806,8 +1806,8 @@ table.inv-table tr:hover td { background: var(--cream); }
           <span class="rel-chip">has_fixation_context</span>
         </div>
         <div class="concept-examples">
-          <div class="concept-example"><span class="ex-text">"re-check near visual acuity"</span><span class="ex-arrow">→</span>ClinMVisualAcuity + FixationNear</div>
-          <div class="concept-example"><span class="ex-text">"distance stereoacuity remains poor"</span><span class="ex-arrow">→</span>ClinMStereoacuity + FixationDistance</div>
+          <div class="concept-example"><span class="ex-text">"re-check near visual acuity"</span><span class="ex-arrow">→</span>Visual Acuity + Near</div>
+          <div class="concept-example"><span class="ex-text">"distance stereoacuity remains poor"</span><span class="ex-arrow">→</span>Stereoacuity + Distance</div>
         </div>
       </div>
     </div>
@@ -1824,8 +1824,8 @@ table.inv-table tr:hover td { background: var(--cream); }
           <span class="rel-chip">has_adherence</span><span class="rel-chip">has_regimen</span><span class="rel-chip">has_status</span><span class="rel-chip">has_phase</span><span class="rel-chip">has_outcome</span>
         </div>
         <div class="concept-examples">
-          <div class="concept-example"><span class="ex-text">"patch 2 hours/day"</span><span class="ex-arrow">→</span>TxPatching + TemporalFrequency</div>
-          <div class="concept-example"><span class="ex-text">"never really wore glasses"</span><span class="ex-arrow">→</span>TxGlasses + AdherencePoor</div>
+          <div class="concept-example"><span class="ex-text">"patch 2 hours/day"</span><span class="ex-arrow">→</span>Patching + Frequency</div>
+          <div class="concept-example"><span class="ex-text">"never really wore glasses"</span><span class="ex-arrow">→</span>Glasses + Poor adherence</div>
         </div>
       </div>
     </div>
@@ -1860,8 +1860,8 @@ table.inv-table tr:hover td { background: var(--cream); }
           <span class="rel-chip">Treatment has_outcome →</span>
         </div>
         <div class="concept-examples">
-          <div class="concept-example"><span class="ex-text">"reverse amblyopia"</span><span class="ex-arrow">→</span>OutcomeReverseAmblyopia</div>
-          <div class="concept-example"><span class="ex-text">"patch allergy"</span><span class="ex-arrow">→</span>OutcomeBandageAllergy</div>
+          <div class="concept-example"><span class="ex-text">"reverse amblyopia"</span><span class="ex-arrow">→</span>Reverse amblyopia</div>
+          <div class="concept-example"><span class="ex-text">"patch allergy"</span><span class="ex-arrow">→</span>Bandage allergy</div>
         </div>
       </div>
     </div>
@@ -1878,9 +1878,9 @@ table.inv-table tr:hover td { background: var(--cream); }
           <span class="rel-chip">Treatment has_adherence →</span>
         </div>
         <div class="concept-examples">
-          <div class="concept-example"><span class="ex-text">"never wore them"</span><span class="ex-arrow">→</span>AdherencePoor → TxGlasses</div>
-          <div class="concept-example"><span class="ex-text">"refuses patch"</span><span class="ex-arrow">→</span>AdherencePatchRefusal → TxPatching</div>
-          <div class="concept-example"><span class="ex-text">"lost glasses"</span><span class="ex-arrow">→</span>AdherenceLostGlasses</div>
+          <div class="concept-example"><span class="ex-text">"never wore them"</span><span class="ex-arrow">→</span>Poor adherence → Glasses</div>
+          <div class="concept-example"><span class="ex-text">"refuses patch"</span><span class="ex-arrow">→</span>Patch refusal → Patching</div>
+          <div class="concept-example"><span class="ex-text">"lost glasses"</span><span class="ex-arrow">→</span>Lost glasses</div>
         </div>
       </div>
     </div>
@@ -1897,8 +1897,8 @@ table.inv-table tr:hover td { background: var(--cream); }
           <span class="rel-chip">has_scheduling</span>
         </div>
         <div class="concept-examples">
-          <div class="concept-example"><span class="ex-text">"RTC 3 months"</span><span class="ex-arrow">→</span>PlanFollowUp + TemporalDuration</div>
-          <div class="concept-example"><span class="ex-text">"referral to strabismus clinic"</span><span class="ex-arrow">→</span>PlanReferral</div>
+          <div class="concept-example"><span class="ex-text">"RTC 3 months"</span><span class="ex-arrow">→</span>Follow-up + Duration</div>
+          <div class="concept-example"><span class="ex-text">"referral to strabismus clinic"</span><span class="ex-arrow">→</span>Referral</div>
         </div>
       </div>
     </div>
@@ -1915,9 +1915,9 @@ table.inv-table tr:hover td { background: var(--cream); }
           <span class="rel-chip">co-occurs with Adherence</span>
         </div>
         <div class="concept-examples">
-          <div class="concept-example"><span class="ex-text">"missed visits due to transportation"</span><span class="ex-arrow">→</span>SDOHTransportation</div>
-          <div class="concept-example"><span class="ex-text">"cannot afford glasses"</span><span class="ex-arrow">→</span>SDOHAffordHealthcare</div>
-          <div class="concept-example"><span class="ex-text">"needs interpreter"</span><span class="ex-arrow">→</span>SDOHLanguage</div>
+          <div class="concept-example"><span class="ex-text">"missed visits due to transportation"</span><span class="ex-arrow">→</span>Transportation</div>
+          <div class="concept-example"><span class="ex-text">"cannot afford glasses"</span><span class="ex-arrow">→</span>Ability to afford healthcare</div>
+          <div class="concept-example"><span class="ex-text">"needs interpreter"</span><span class="ex-arrow">→</span>Speaking language</div>
         </div>
       </div>
     </div>
@@ -1944,9 +1944,9 @@ table.inv-table tr:hover td { background: var(--cream); }
       </div>
       <div class="mod-rule">Explicitly stated eye references: left/right, OD/OS/OU, both eyes, fellow eye, amblyopic eye.</div>
       <div class="mod-examples">
-        <div class="mod-ex">"left" → LateralityLeftEye (LateralityOS)</div>
-        <div class="mod-ex">"both eyes" → LateralityBothEyes (LateralityOU)</div>
-        <div class="mod-ex">"amblyopic eye" → LateralityAmblyopicEye</div>
+        <div class="mod-ex">"left" → Left eye (OS)</div>
+        <div class="mod-ex">"both eyes" → Both eyes (OU)</div>
+        <div class="mod-ex">"amblyopic eye" → Amblyopic Eye</div>
       </div>
     </div>
 
@@ -1958,8 +1958,8 @@ table.inv-table tr:hover td { background: var(--cream); }
       </div>
       <div class="mod-rule">Severity words when explicitly stated: mild, moderate, severe.</div>
       <div class="mod-examples">
-        <div class="mod-ex">"severe amblyopia" → SeveritySevere → has_severity</div>
-        <div class="mod-ex">"mild esotropia" → SeverityMild → has_severity</div>
+        <div class="mod-ex">"severe amblyopia" → Severe → has_severity</div>
+        <div class="mod-ex">"mild esotropia" → Mild → has_severity</div>
       </div>
     </div>
 
@@ -1971,9 +1971,9 @@ table.inv-table tr:hover td { background: var(--cream); }
       </div>
       <div class="mod-rule">Course/behavior over time: intermittent, constant, improving, worsening, stable, residual, recurrent.</div>
       <div class="mod-examples">
-        <div class="mod-ex">"amblyopia improving" → PatternImproving</div>
-        <div class="mod-ex">"residual esotropia" → PatternResidual</div>
-        <div class="mod-ex">"intermittent exotropia" → PatternIntermittent</div>
+        <div class="mod-ex">"amblyopia improving" → Improving</div>
+        <div class="mod-ex">"residual esotropia" → Residual</div>
+        <div class="mod-ex">"intermittent exotropia" → Intermittent</div>
       </div>
     </div>
 
@@ -1985,8 +1985,8 @@ table.inv-table tr:hover td { background: var(--cream); }
       </div>
       <div class="mod-rule">Near / Distance when explicitly stated with a test or clinical measure. Do not infer.</div>
       <div class="mod-examples">
-        <div class="mod-ex">"near visual acuity" → FixationNear → ClinMVisualAcuity</div>
-        <div class="mod-ex">"cover test at distance" → FixationDistance → TestCoverTest</div>
+        <div class="mod-ex">"near visual acuity" → Near → Visual Acuity</div>
+        <div class="mod-ex">"cover test at distance" → Distance → Cover test</div>
       </div>
     </div>
 
@@ -1996,11 +1996,11 @@ table.inv-table tr:hover td { background: var(--cream); }
         <div class="mod-name">Temporal</div>
         <div class="mod-abbr">Temp</div>
       </div>
-      <div class="mod-rule">Date/time, age of onset, frequency, or duration. Tag spans only — no normalization. TemporalAge is for onset only, not demographics.</div>
+      <div class="mod-rule">Date/time, age of onset, frequency, or duration. Tag spans only — no normalization. Age is for onset only, not demographics.</div>
       <div class="mod-examples">
-        <div class="mod-ex">"since age 2" → TemporalAge → has_onset</div>
-        <div class="mod-ex">"2 hours/day" → TemporalFrequency → has_regimen</div>
-        <div class="mod-ex">"for 3 months" → TemporalDuration → has_regimen</div>
+        <div class="mod-ex">"since age 2" → Age → has_onset</div>
+        <div class="mod-ex">"2 hours/day" → Frequency → has_regimen</div>
+        <div class="mod-ex">"for 3 months" → Duration → has_regimen</div>
       </div>
     </div>
 
@@ -2012,9 +2012,9 @@ table.inv-table tr:hover td { background: var(--cream); }
       </div>
       <div class="mod-rule">Explicit status cues for treatments: new, continued, unchanged, stopped, restarted, deferred.</div>
       <div class="mod-examples">
-        <div class="mod-ex">"continue glasses" → StatusContinued</div>
-        <div class="mod-ex">"will not patch" → StatusDeferred</div>
-        <div class="mod-ex">"stop atropine" → StatusStopped</div>
+        <div class="mod-ex">"continue glasses" → Continued</div>
+        <div class="mod-ex">"will not patch" → Deferred</div>
+        <div class="mod-ex">"stop atropine" → Stopped</div>
       </div>
     </div>
 
@@ -2026,8 +2026,8 @@ table.inv-table tr:hover td { background: var(--cream); }
       </div>
       <div class="mod-rule">Phase of treatment explicitly stated: tapering, trial.</div>
       <div class="mod-examples">
-        <div class="mod-ex">"trial of atropine" → PhaseTrial → has_phase</div>
-        <div class="mod-ex">"taper patching" → PhaseTapering → has_phase</div>
+        <div class="mod-ex">"trial of atropine" → Trial → has_phase</div>
+        <div class="mod-ex">"taper patching" → Tapering → has_phase</div>
       </div>
     </div>
 
@@ -2039,8 +2039,8 @@ table.inv-table tr:hover td { background: var(--cream); }
       </div>
       <div class="mod-rule">Dosage expressions when explicitly stated. Tag the span; link to treatment when possible.</div>
       <div class="mod-examples">
-        <div class="mod-ex">"atropine 1 drop nightly" → DoseDosage</div>
-        <div class="mod-ex">"0.01% atropine" → DoseDosage</div>
+        <div class="mod-ex">"atropine 1 drop nightly" → Dosage</div>
+        <div class="mod-ex">"0.01% atropine" → Dosage</div>
       </div>
     </div>
   </div>
@@ -2063,11 +2063,11 @@ table.inv-table tr:hover td { background: var(--cream); }
       <div class="anno-example-head">Example 1 — Assessment</div>
       <div class="anno-example-body">
         <div class="anno-text">
-          <span class="span-sev" title="SeveritySevere">severe</span> <span class="span-lat" title="LateralityLeftEye">left</span> <span class="span-dx" title="DiagAnisometropicAmblyopia">anisometropic amblyopia</span>
+          <span class="span-sev" title="Severe">severe</span> <span class="span-lat" title="Left eye">left</span> <span class="span-dx" title="Anisometropic amblyopia">anisometropic amblyopia</span>
         </div>
         <div class="anno-detail">
           <div class="anno-span-detail detail-dx">
-            <div class="span-label">DiagAnisometropicAmblyopia</div>
+            <div class="span-label">Anisometropic amblyopia</div>
             <div class="span-text-ref">"anisometropic amblyopia"</div>
             <div class="span-attrs">
               <span class="attr-pill">assertion: present</span>
@@ -2076,11 +2076,11 @@ table.inv-table tr:hover td { background: var(--cream); }
             </div>
           </div>
           <div class="anno-span-detail detail-lat">
-            <div class="span-label">LateralityLeftEye</div>
+            <div class="span-label">Left eye</div>
             <div class="span-text-ref">"left"</div>
           </div>
           <div class="anno-span-detail detail-sev">
-            <div class="span-label">SeveritySevere</div>
+            <div class="span-label">Severe</div>
             <div class="span-text-ref">"severe"</div>
           </div>
         </div>
@@ -2088,14 +2088,14 @@ table.inv-table tr:hover td { background: var(--cream); }
           <div class="anno-rels-label">Relationships</div>
           <div class="anno-rel-rows">
             <div class="anno-rel-row">
-              <span class="rel-source" style="background:var(--dx-bg);color:var(--dx)">DiagAnisometropicAmblyopia</span>
+              <span class="rel-source" style="background:var(--dx-bg);color:var(--dx)">Anisometropic amblyopia</span>
               <span class="rel-arrow"><span class="rel-arrow-line"></span><span class="rel-name-tag">has_laterality</span><span class="rel-arrow-line"></span><span class="rel-arrow-tip">›</span></span>
-              <span class="rel-target" style="background:var(--lat-bg);color:var(--lat)">LateralityLeftEye</span>
+              <span class="rel-target" style="background:var(--lat-bg);color:var(--lat)">Left eye</span>
             </div>
             <div class="anno-rel-row">
-              <span class="rel-source" style="background:var(--dx-bg);color:var(--dx)">DiagAnisometropicAmblyopia</span>
+              <span class="rel-source" style="background:var(--dx-bg);color:var(--dx)">Anisometropic amblyopia</span>
               <span class="rel-arrow"><span class="rel-arrow-line"></span><span class="rel-name-tag">has_severity</span><span class="rel-arrow-line"></span><span class="rel-arrow-tip">›</span></span>
-              <span class="rel-target" style="background:var(--sev-bg);color:var(--sev)">SeveritySevere</span>
+              <span class="rel-target" style="background:var(--sev-bg);color:var(--sev)">Severe</span>
             </div>
           </div>
         </div>
@@ -2107,11 +2107,11 @@ table.inv-table tr:hover td { background: var(--cream); }
       <div class="anno-example-head">Example 2 — HPI (caregiver report)</div>
       <div class="anno-example-body">
         <div class="anno-text">
-          Mom reports the <span class="span-lat" title="LateralityLeftEye">left eye</span> <span class="span-sx" title="SympCrossing">crosses</span>
+          Mom reports the <span class="span-lat" title="Left eye">left eye</span> <span class="span-sx" title="Crossing">crosses</span>
         </div>
         <div class="anno-detail">
           <div class="anno-span-detail detail-sx">
-            <div class="span-label">SympCrossing</div>
+            <div class="span-label">Crossing</div>
             <div class="span-text-ref">"crosses"</div>
             <div class="span-attrs">
               <span class="attr-pill">assertion: present</span>
@@ -2120,7 +2120,7 @@ table.inv-table tr:hover td { background: var(--cream); }
             </div>
           </div>
           <div class="anno-span-detail detail-lat">
-            <div class="span-label">LateralityLeftEye</div>
+            <div class="span-label">Left eye</div>
             <div class="span-text-ref">"left eye"</div>
             <div class="span-attrs"><span class="attr-pill">note: caregiver report does NOT change experiencer → patient</span></div>
           </div>
@@ -2129,9 +2129,9 @@ table.inv-table tr:hover td { background: var(--cream); }
           <div class="anno-rels-label">Relationships</div>
           <div class="anno-rel-rows">
             <div class="anno-rel-row">
-              <span class="rel-source" style="background:var(--sx-bg);color:var(--sx)">SympCrossing</span>
+              <span class="rel-source" style="background:var(--sx-bg);color:var(--sx)">Crossing</span>
               <span class="rel-arrow"><span class="rel-arrow-line"></span><span class="rel-name-tag">has_laterality</span><span class="rel-arrow-line"></span><span class="rel-arrow-tip">›</span></span>
-              <span class="rel-target" style="background:var(--lat-bg);color:var(--lat)">LateralityLeftEye</span>
+              <span class="rel-target" style="background:var(--lat-bg);color:var(--lat)">Left eye</span>
             </div>
           </div>
         </div>
@@ -2143,16 +2143,16 @@ table.inv-table tr:hover td { background: var(--cream); }
       <div class="anno-example-head">Example 3 — Adherence</div>
       <div class="anno-example-body">
         <div class="anno-text">
-          She <span class="span-ad" title="AdherencePoor">never really wore</span> <span class="span-tx" title="TxGlasses">glasses</span>
+          She <span class="span-ad" title="Poor adherence">never really wore</span> <span class="span-tx" title="Glasses">glasses</span>
         </div>
         <div class="anno-detail">
           <div class="anno-span-detail detail-tx">
-            <div class="span-label">TxGlasses</div>
+            <div class="span-label">Glasses</div>
             <div class="span-text-ref">"glasses"</div>
             <div class="span-attrs"><span class="attr-pill">assertion: present</span></div>
           </div>
           <div class="anno-span-detail detail-ad">
-            <div class="span-label">AdherencePoor</div>
+            <div class="span-label">Poor adherence</div>
             <div class="span-text-ref">"never really wore"</div>
           </div>
         </div>
@@ -2160,9 +2160,9 @@ table.inv-table tr:hover td { background: var(--cream); }
           <div class="anno-rels-label">Relationships</div>
           <div class="anno-rel-rows">
             <div class="anno-rel-row">
-              <span class="rel-source" style="background:var(--tx-bg);color:var(--tx)">TxGlasses</span>
+              <span class="rel-source" style="background:var(--tx-bg);color:var(--tx)">Glasses</span>
               <span class="rel-arrow"><span class="rel-arrow-line"></span><span class="rel-name-tag">has_adherence</span><span class="rel-arrow-line"></span><span class="rel-arrow-tip">›</span></span>
-              <span class="rel-target" style="background:var(--ad-bg);color:var(--ad)">AdherencePoor</span>
+              <span class="rel-target" style="background:var(--ad-bg);color:var(--ad)">Poor adherence</span>
             </div>
           </div>
         </div>
@@ -2174,19 +2174,19 @@ table.inv-table tr:hover td { background: var(--cream); }
       <div class="anno-example-head">Example 4 — Treatment regimen</div>
       <div class="anno-example-body">
         <div class="anno-text">
-          <span class="span-tx" title="TxPatching">patch</span> <span class="span-tmp" title="TemporalFrequency">2 hours/day</span> <span class="span-tmp" title="TemporalDuration">for 3 months</span>
+          <span class="span-tx" title="Patching">patch</span> <span class="span-tmp" title="Frequency">2 hours/day</span> <span class="span-tmp" title="Duration">for 3 months</span>
         </div>
         <div class="anno-detail">
           <div class="anno-span-detail detail-tx">
-            <div class="span-label">TxPatching</div>
+            <div class="span-label">Patching</div>
             <div class="span-text-ref">"patch"</div>
           </div>
           <div class="anno-span-detail detail-tmp">
-            <div class="span-label">TemporalFrequency</div>
+            <div class="span-label">Frequency</div>
             <div class="span-text-ref">"2 hours/day"</div>
           </div>
           <div class="anno-span-detail detail-tmp">
-            <div class="span-label">TemporalDuration</div>
+            <div class="span-label">Duration</div>
             <div class="span-text-ref">"for 3 months"</div>
           </div>
         </div>
@@ -2194,14 +2194,14 @@ table.inv-table tr:hover td { background: var(--cream); }
           <div class="anno-rels-label">Relationships</div>
           <div class="anno-rel-rows">
             <div class="anno-rel-row">
-              <span class="rel-source" style="background:var(--tx-bg);color:var(--tx)">TxPatching</span>
+              <span class="rel-source" style="background:var(--tx-bg);color:var(--tx)">Patching</span>
               <span class="rel-arrow"><span class="rel-arrow-line"></span><span class="rel-name-tag">has_regimen</span><span class="rel-arrow-line"></span><span class="rel-arrow-tip">›</span></span>
-              <span class="rel-target" style="background:var(--tmp-bg);color:var(--tmp)">TemporalFrequency</span>
+              <span class="rel-target" style="background:var(--tmp-bg);color:var(--tmp)">Frequency</span>
             </div>
             <div class="anno-rel-row">
-              <span class="rel-source" style="background:var(--tx-bg);color:var(--tx)">TxPatching</span>
+              <span class="rel-source" style="background:var(--tx-bg);color:var(--tx)">Patching</span>
               <span class="rel-arrow"><span class="rel-arrow-line"></span><span class="rel-name-tag">has_regimen</span><span class="rel-arrow-line"></span><span class="rel-arrow-tip">›</span></span>
-              <span class="rel-target" style="background:var(--tmp-bg);color:var(--tmp)">TemporalDuration</span>
+              <span class="rel-target" style="background:var(--tmp-bg);color:var(--tmp)">Duration</span>
             </div>
           </div>
         </div>
@@ -2213,15 +2213,15 @@ table.inv-table tr:hover td { background: var(--cream); }
       <div class="anno-example-head">Example 5 — Status (deferred)</div>
       <div class="anno-example-body">
         <div class="anno-text">
-          <span class="span-stat" title="StatusDeferred">Will not</span> <span class="span-tx" title="TxPatching">patch</span> given age
+          <span class="span-stat" title="Deferred">Will not</span> <span class="span-tx" title="Patching">patch</span> given age
         </div>
         <div class="anno-detail">
           <div class="anno-span-detail detail-tx">
-            <div class="span-label">TxPatching</div>
+            <div class="span-label">Patching</div>
             <div class="span-text-ref">"patch"</div>
           </div>
           <div class="anno-span-detail detail-stat">
-            <div class="span-label">StatusDeferred</div>
+            <div class="span-label">Deferred</div>
             <div class="span-text-ref">"Will not"</div>
             <div class="span-attrs"><span class="attr-pill">"will not [treatment]" → always Deferred</span></div>
           </div>
@@ -2230,9 +2230,9 @@ table.inv-table tr:hover td { background: var(--cream); }
           <div class="anno-rels-label">Relationships</div>
           <div class="anno-rel-rows">
             <div class="anno-rel-row">
-              <span class="rel-source" style="background:var(--tx-bg);color:var(--tx)">TxPatching</span>
+              <span class="rel-source" style="background:var(--tx-bg);color:var(--tx)">Patching</span>
               <span class="rel-arrow"><span class="rel-arrow-line"></span><span class="rel-name-tag">has_status</span><span class="rel-arrow-line"></span><span class="rel-arrow-tip">›</span></span>
-              <span class="rel-target" style="background:var(--stat-bg);color:var(--stat)">StatusDeferred</span>
+              <span class="rel-target" style="background:var(--stat-bg);color:var(--stat)">Deferred</span>
             </div>
           </div>
         </div>
@@ -2244,11 +2244,11 @@ table.inv-table tr:hover td { background: var(--cream); }
       <div class="anno-example-head">Example 6 — Family history</div>
       <div class="anno-example-body">
         <div class="anno-text">
-          <span class="span-fam" title="DiagStrabismus (experiencer=family)">Family history of strabismus</span>
+          <span class="span-fam" title="Strabismus (experiencer=family)">Family history of strabismus</span>
         </div>
         <div class="anno-detail">
           <div class="anno-span-detail detail-fam">
-            <div class="span-label">DiagStrabismus</div>
+            <div class="span-label">Strabismus</div>
             <div class="span-text-ref">"strabismus" (within phrase)</div>
             <div class="span-attrs">
               <span class="attr-pill">assertion: present</span>
