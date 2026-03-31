@@ -1,2 +1,4 @@
 *.ttl
 *.xlsx
+.claude/settings.local.json
+Annotation_Guidelines_V4.md
