@@ -1,0 +1,2764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Annotation Guidelines — Pediatric Amblyopia</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap');
+
+:root {
+  --sidebar-w: 260px;
+  --navy: #0f1829;
+  --navy2: #162035;
+  --navy3: #1e2d4a;
+  --navy-border: #2a3f66;
+  --cream: #faf8f4;
+  --paper: #ffffff;
+  --ink: #1a1f2e;
+  --ink2: #3d4560;
+  --ink3: #6b7494;
+  --rule: #e8e4dc;
+  --accent: #c8956c;
+
+  --dx: #3b6fd4;       --dx-bg: #eef3fc;   --dx-light: #dce8fb;
+  --sx: #7c4dbb;       --sx-bg: #f3eef9;   --sx-light: #e8ddf6;
+  --exam: #0891b2;     --exam-bg: #e0f6fb; --exam-light: #c9eef7;
+  --tx: #15803d;       --tx-bg: #e7f6ee;   --tx-light: #d1edd e;
+  --proc: #5046e5;     --proc-bg: #eeecfd; --proc-light: #dddafb;
+  --out: #b45309;      --out-bg: #fef3e2;  --out-light: #fde8c4;
+  --ad: #be185d;       --ad-bg: #fde8f2;   --ad-light: #fbcfe8;
+  --plan: #0f766e;     --plan-bg: #e0f5f3; --plan-light: #c3ece9;
+  --sdoh: #9a3412;     --sdoh-bg: #fff0eb; --sdoh-light: #ffe0d0;
+  --lat: #c2520b;      --lat-bg: #fff3e8;  --lat-light: #ffe6cc;
+  --sev: #c0392b;      --sev-bg: #fdecea;  --sev-light: #fbd8d5;
+  --pat: #0f766e;      --pat-bg: #e0f5f3;  --pat-light: #c3ece9;
+  --tmp: #a16207;      --tmp-bg: #fef9e2;  --tmp-light: #fdf1c4;
+  --stat: #6d28d9;     --stat-bg: #f0ebfd; --stat-light: #e2d9fb;
+  --fix: #1d4ed8;      --fix-bg: #e8effe;  --fix-light: #d3e2fd;
+  --tx-bg2: #d1edde;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  display: flex;
+  min-height: 100vh;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ── SIDEBAR ── */
+#sidebar {
+  width: var(--sidebar-w);
+  min-height: 100vh;
+  background: var(--navy);
+  position: fixed;
+  top: 0; left: 0;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  z-index: 100;
+  border-right: 1px solid var(--navy-border);
+}
+
+.sidebar-logo {
+  padding: 24px 20px 16px;
+  border-bottom: 1px solid var(--navy-border);
+}
+.sidebar-logo .eye-icon {
+  width: 32px; height: 32px;
+  background: var(--accent);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 10px;
+}
+.sidebar-logo .eye-icon::after {
+  content: '';
+  width: 10px; height: 10px;
+  background: var(--navy);
+  border-radius: 50%;
+}
+.sidebar-logo h1 {
+  font-family: 'Lora', serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+}
+.sidebar-logo p {
+  font-size: 11px;
+  color: #7a8fb8;
+  margin-top: 3px;
+  font-weight: 300;
+}
+
+#search-box {
+  margin: 14px 16px;
+  position: relative;
+}
+#search-box input {
+  width: 100%;
+  background: var(--navy3);
+  border: 1px solid var(--navy-border);
+  border-radius: 8px;
+  padding: 8px 12px 8px 34px;
+  color: #fff;
+  font-size: 13px;
+  font-family: 'DM Sans', sans-serif;
+  outline: none;
+  transition: border-color 0.2s;
+}
+#search-box input::placeholder { color: #4a6090; }
+#search-box input:focus { border-color: var(--accent); }
+#search-box .search-icon {
+  position: absolute;
+  left: 10px; top: 50%;
+  transform: translateY(-50%);
+  color: #4a6090;
+  font-size: 14px;
+  pointer-events: none;
+}
+
+nav { flex: 1; padding: 8px 0 24px; }
+.nav-group { margin-bottom: 4px; }
+.nav-section-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #4a6090;
+  padding: 12px 20px 4px;
+}
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 20px;
+  font-size: 13px;
+  color: #8ba4cc;
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  transition: all 0.15s;
+  cursor: pointer;
+}
+.nav-link:hover { color: #fff; background: var(--navy3); border-left-color: var(--accent); }
+.nav-link.active { color: #fff; background: rgba(200,149,108,0.12); border-left-color: var(--accent); }
+.nav-link .dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.5;
+  flex-shrink: 0;
+}
+
+/* ── MAIN ── */
+main {
+  margin-left: var(--sidebar-w);
+  flex: 1;
+  padding: 0;
+}
+
+.section {
+  padding: 56px 60px;
+  border-bottom: 1px solid var(--rule);
+  max-width: 980px;
+}
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 32px;
+}
+.section-number {
+  font-family: 'Lora', serif;
+  font-size: 13px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--ink3);
+}
+.section-title {
+  font-family: 'Lora', serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.2;
+}
+.section-subtitle {
+  font-size: 15px;
+  color: var(--ink2);
+  max-width: 640px;
+  margin-top: 6px;
+  line-height: 1.6;
+}
+
+h3 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  margin-bottom: 14px;
+  margin-top: 32px;
+}
+h3:first-child { margin-top: 0; }
+
+p { color: var(--ink2); margin-bottom: 12px; line-height: 1.7; }
+
+/* ── HERO ── */
+#hero {
+  background: var(--navy);
+  padding: 72px 60px 56px;
+  border-bottom: none;
+  max-width: none;
+  position: relative;
+  overflow: hidden;
+}
+#hero::before {
+  content: '';
+  position: absolute;
+  top: -100px; right: -100px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(200,149,108,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(200,149,108,0.15);
+  border: 1px solid rgba(200,149,108,0.3);
+  border-radius: 100px;
+  padding: 5px 12px;
+  font-size: 12px;
+  color: var(--accent);
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+.hero-title {
+  font-family: 'Lora', serif;
+  font-size: 42px;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: 14px;
+  max-width: 600px;
+}
+.hero-title em { color: var(--accent); font-style: italic; }
+.hero-desc {
+  font-size: 16px;
+  color: #8ba4cc;
+  max-width: 540px;
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+.hero-stats {
+  display: flex;
+  gap: 32px;
+}
+.hero-stat { }
+.hero-stat .num {
+  font-family: 'Lora', serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: #fff;
+}
+.hero-stat .label {
+  font-size: 12px;
+  color: #5a7299;
+  margin-top: 2px;
+}
+
+/* ── INTRO WORKFLOW ── */
+.workflow-steps {
+  display: flex;
+  gap: 0;
+  margin: 28px 0;
+  flex-wrap: wrap;
+}
+.workflow-step {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex: 1;
+  min-width: 180px;
+}
+.step-box {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  padding: 16px 16px;
+  flex: 1;
+  text-align: center;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.step-box:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); transform: translateY(-2px); }
+.step-num {
+  width: 28px; height: 28px;
+  background: var(--navy);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 600;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 10px;
+}
+.step-title { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+.step-desc { font-size: 12px; color: var(--ink3); line-height: 1.4; }
+.step-arrow {
+  color: var(--ink3);
+  font-size: 18px;
+  padding: 0 8px;
+  flex-shrink: 0;
+}
+
+/* ── DECISION FLOWCHART ── */
+#flowchart-container {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  padding: 32px;
+  margin: 24px 0;
+}
+.flow-step { display: none; }
+.flow-step.active { display: block; animation: fadeIn 0.25s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+.flow-progress {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 24px;
+}
+.flow-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--rule);
+  transition: background 0.2s;
+}
+.flow-dot.done { background: var(--accent); }
+.flow-dot.current { background: var(--navy); }
+
+.flow-question {
+  font-family: 'Lora', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
+.flow-hint {
+  font-size: 13px;
+  color: var(--ink3);
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+.flow-options {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.flow-btn {
+  padding: 10px 24px;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.flow-btn.yes { background: var(--navy); color: #fff; }
+.flow-btn.yes:hover { background: var(--navy3); }
+.flow-btn.no { background: var(--cream); color: var(--ink); border: 1px solid var(--rule); }
+.flow-btn.no:hover { background: #f0ece4; }
+
+.flow-outcome {
+  border-radius: 10px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+.flow-outcome.go {
+  background: #e8f5ee;
+  border: 1px solid #a8d9b8;
+}
+.flow-outcome.stop {
+  background: #fdecea;
+  border: 1px solid #f5b8b3;
+}
+.flow-outcome .outcome-icon {
+  font-size: 22px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.flow-outcome .outcome-title {
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+.flow-outcome.go .outcome-title { color: #15803d; }
+.flow-outcome.stop .outcome-title { color: #c0392b; }
+.flow-outcome .outcome-detail { font-size: 13px; color: var(--ink2); line-height: 1.5; }
+
+.flow-restart {
+  margin-top: 16px;
+  background: none;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 13px;
+  color: var(--ink3);
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.15s;
+}
+.flow-restart:hover { border-color: var(--navy); color: var(--ink); }
+
+/* ── ELIGIBLE / INELIGIBLE ── */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+.check-card {
+  border-radius: 10px;
+  padding: 20px;
+}
+.check-card.yes-card { background: #e8f5ee; border: 1px solid #a8d9b8; }
+.check-card.no-card { background: #fdecea; border: 1px solid #f5b8b3; }
+.check-card .card-title {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.check-card.yes-card .card-title { color: #15803d; }
+.check-card.no-card .card-title { color: #c0392b; }
+.check-list { list-style: none; }
+.check-list li {
+  font-size: 13px;
+  color: var(--ink2);
+  padding: 5px 0;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.check-list li:last-child { border-bottom: none; }
+.check-list li::before { font-size: 12px; flex-shrink: 0; }
+.yes-card .check-list li::before { content: '✓'; color: #15803d; }
+.no-card .check-list li::before { content: '✗'; color: #c0392b; }
+
+/* ── ATTRIBUTES ── */
+.attr-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 20px 0; }
+.attr-card {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.attr-card-head {
+  padding: 14px 18px;
+  background: var(--navy);
+  color: #fff;
+}
+.attr-card-head .attr-name {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.attr-card-head .attr-def {
+  font-size: 12px;
+  color: #8ba4cc;
+  margin-top: 3px;
+}
+.attr-card-body { padding: 16px; }
+.attr-value {
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-bottom: 8px;
+}
+.attr-value.default { background: #e8f5ee; border: 1px solid #a8d9b8; }
+.attr-value.alt { background: var(--cream); border: 1px solid var(--rule); }
+.attr-value .val-name {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+.attr-value.default .val-name { color: #15803d; }
+.attr-value.alt .val-name { color: var(--ink2); }
+.attr-value .val-default {
+  font-size: 10px;
+  background: #15803d;
+  color: #fff;
+  border-radius: 4px;
+  padding: 1px 6px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+.attr-triggers { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 5px; }
+.trigger-tag {
+  font-size: 11px;
+  background: rgba(0,0,0,0.06);
+  border-radius: 4px;
+  padding: 2px 7px;
+  color: var(--ink2);
+  font-family: 'DM Mono', monospace;
+}
+.val-example {
+  font-size: 12px;
+  color: var(--ink3);
+  font-style: italic;
+  margin-top: 5px;
+  line-height: 1.4;
+}
+
+/* ── CONCEPT CARDS ── */
+.concept-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+  margin: 20px 0;
+}
+.concept-card {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.concept-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); transform: translateY(-2px); }
+.concept-card-head {
+  padding: 14px 18px 12px;
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.concept-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.concept-badge {
+  font-size: 11px;
+  font-weight: 600;
+  font-family: 'DM Mono', monospace;
+  padding: 3px 8px;
+  border-radius: 5px;
+  letter-spacing: 0.03em;
+}
+.concept-card-body { padding: 14px 18px; }
+.concept-tag-line {
+  font-size: 13px;
+  color: var(--ink2);
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+.concept-skip {
+  font-size: 12px;
+  color: #c0392b;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+}
+.concept-skip::before { content: '✗'; font-size: 11px; }
+.rel-chips { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 12px; }
+.rel-chip {
+  font-size: 11px;
+  background: var(--cream);
+  border: 1px solid var(--rule);
+  border-radius: 5px;
+  padding: 2px 8px;
+  color: var(--ink3);
+  font-family: 'DM Mono', monospace;
+}
+.concept-examples { }
+.concept-example {
+  font-size: 12px;
+  color: var(--ink3);
+  padding: 5px 0;
+  border-top: 1px solid var(--rule);
+  line-height: 1.5;
+}
+.concept-example:first-child { border-top: none; }
+.ex-text { font-style: italic; color: var(--ink2); }
+.ex-arrow { color: var(--ink3); margin: 0 4px; }
+
+/* ── ANNOTATION EXAMPLES ── */
+.anno-examples { margin: 20px 0; }
+.anno-example {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+.anno-example-head {
+  padding: 12px 20px;
+  background: var(--cream);
+  border-bottom: 1px solid var(--rule);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink3);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.anno-example-body { padding: 20px; }
+.anno-text {
+  font-family: 'Lora', serif;
+  font-size: 18px;
+  color: var(--ink);
+  line-height: 1.9;
+  margin-bottom: 20px;
+}
+
+/* span highlights */
+.span-dx      { background: var(--dx-bg); border-bottom: 2.5px solid var(--dx); padding: 1px 3px; border-radius: 3px; cursor: pointer; transition: background 0.15s; }
+.span-sx      { background: var(--sx-bg); border-bottom: 2.5px solid var(--sx); padding: 1px 3px; border-radius: 3px; cursor: pointer; }
+.span-tx      { background: var(--tx-bg); border-bottom: 2.5px solid var(--tx); padding: 1px 3px; border-radius: 3px; cursor: pointer; }
+.span-lat     { background: var(--lat-bg); border-bottom: 2.5px solid var(--lat); padding: 1px 3px; border-radius: 3px; cursor: pointer; }
+.span-sev     { background: var(--sev-bg); border-bottom: 2.5px solid var(--sev); padding: 1px 3px; border-radius: 3px; cursor: pointer; }
+.span-pat     { background: var(--pat-bg); border-bottom: 2.5px solid var(--pat); padding: 1px 3px; border-radius: 3px; cursor: pointer; }
+.span-tmp     { background: var(--tmp-bg); border-bottom: 2.5px solid var(--tmp); padding: 1px 3px; border-radius: 3px; cursor: pointer; }
+.span-ad      { background: var(--ad-bg); border-bottom: 2.5px solid var(--ad); padding: 1px 3px; border-radius: 3px; cursor: pointer; }
+.span-stat    { background: var(--stat-bg); border-bottom: 2.5px solid var(--stat); padding: 1px 3px; border-radius: 3px; cursor: pointer; }
+.span-fam     { background: var(--proc-bg); border-bottom: 2.5px solid var(--proc); padding: 1px 3px; border-radius: 3px; cursor: pointer; }
+
+span[class^="span-"]:hover { filter: brightness(0.95); }
+span[class^="span-"].selected { filter: brightness(0.9); outline: 2px solid currentColor; }
+
+.anno-detail {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+}
+.anno-span-detail {
+  border-radius: 8px;
+  padding: 12px 14px;
+  border: 1px solid transparent;
+}
+.anno-span-detail .span-label {
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  font-family: 'DM Mono', monospace;
+}
+.anno-span-detail .span-text-ref {
+  font-style: italic;
+  font-size: 13px;
+  color: var(--ink2);
+  margin-bottom: 8px;
+}
+.anno-span-detail .span-attrs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 6px;
+}
+.attr-pill {
+  font-size: 11px;
+  border-radius: 4px;
+  padding: 2px 7px;
+  background: rgba(0,0,0,0.06);
+  color: var(--ink2);
+}
+.anno-span-detail .span-rels {
+  font-size: 12px;
+  color: var(--ink3);
+}
+.span-rel-line { margin-top: 3px; font-family: 'DM Mono', monospace; font-size: 11px; }
+
+/* color mappings for anno-span-detail */
+.detail-dx   { background: var(--dx-bg);   border-color: var(--dx-light);   }  .detail-dx   .span-label { color: var(--dx);   }
+.detail-sx   { background: var(--sx-bg);   border-color: var(--sx-light);   }  .detail-sx   .span-label { color: var(--sx);   }
+.detail-tx   { background: var(--tx-bg);   border-color: var(--tx-bg2);     }  .detail-tx   .span-label { color: var(--tx);   }
+.detail-lat  { background: var(--lat-bg);  border-color: var(--lat-light);  }  .detail-lat  .span-label { color: var(--lat);  }
+.detail-sev  { background: var(--sev-bg);  border-color: var(--sev-light);  }  .detail-sev  .span-label { color: var(--sev);  }
+.detail-pat  { background: var(--pat-bg);  border-color: var(--pat-light);  }  .detail-pat  .span-label { color: var(--pat);  }
+.detail-tmp  { background: var(--tmp-bg);  border-color: var(--tmp-light);  }  .detail-tmp  .span-label { color: var(--tmp);  }
+.detail-ad   { background: var(--ad-bg);   border-color: var(--ad-light);   }  .detail-ad   .span-label { color: var(--ad);   }
+.detail-stat { background: var(--stat-bg); border-color: var(--stat-light); }  .detail-stat .span-label { color: var(--stat); }
+.detail-fam  { background: var(--proc-bg); border-color: var(--proc-light); }  .detail-fam  .span-label { color: var(--proc); }
+
+/* ── DO/DON'T ── */
+.dodont-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+.dd-card {
+  border-radius: 10px;
+  padding: 18px 20px;
+  border: 1px solid transparent;
+}
+.dd-card.do { background: #e8f5ee; border-color: #a8d9b8; }
+.dd-card.dont { background: #fdecea; border-color: #f5b8b3; }
+.dd-head {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.dd-card.do .dd-head { color: #15803d; }
+.dd-card.dont .dd-head { color: #c0392b; }
+.dd-text { font-size: 13px; color: var(--ink2); line-height: 1.6; }
+.dd-example {
+  margin-top: 10px;
+  font-size: 12px;
+  font-style: italic;
+  color: var(--ink3);
+  background: rgba(255,255,255,0.6);
+  border-radius: 6px;
+  padding: 8px 10px;
+}
+.dd-pair-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  grid-column: 1 / -1;
+  margin-top: 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--rule);
+}
+.dd-pair-label:first-child { margin-top: 0; }
+
+/* ── RELATIONSHIP TABLE ── */
+.rel-table-wrap { overflow-x: auto; margin: 20px 0; }
+table.rel-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+table.rel-table th {
+  background: var(--navy);
+  color: #8ba4cc;
+  font-weight: 500;
+  font-size: 12px;
+  padding: 10px 14px;
+  text-align: left;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+table.rel-table th:first-child { color: #fff; border-radius: 0; }
+table.rel-table td {
+  padding: 9px 14px;
+  border-bottom: 1px solid var(--rule);
+  color: var(--ink2);
+  vertical-align: top;
+}
+table.rel-table tr:hover td { background: var(--cream); }
+.rel-name-cell {
+  font-family: 'DM Mono', monospace;
+  font-weight: 500;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.rel-allowed {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+}
+.rel-allowed.yes { color: #15803d; }
+.rel-allowed.no { color: #c0392b; }
+.rel-example-text {
+  font-size: 12px;
+  color: var(--ink3);
+  font-style: italic;
+  margin-top: 3px;
+}
+
+/* ── MODIFIER CARDS ── */
+.mod-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 14px;
+  margin: 20px 0;
+}
+.mod-card {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  padding: 18px;
+  transition: box-shadow 0.2s;
+}
+.mod-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.07); }
+.mod-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.mod-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.mod-name { font-weight: 600; font-size: 14px; color: var(--ink); }
+.mod-abbr {
+  font-size: 11px;
+  font-family: 'DM Mono', monospace;
+  color: var(--ink3);
+  margin-left: auto;
+  background: var(--cream);
+  border-radius: 4px;
+  padding: 2px 7px;
+}
+.mod-rule {
+  font-size: 13px;
+  color: var(--ink2);
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+.mod-examples { }
+.mod-ex {
+  font-size: 12px;
+  color: var(--ink3);
+  font-style: italic;
+  padding: 4px 0;
+  border-top: 1px solid var(--rule);
+}
+.mod-ex:first-child { border-top: none; padding-top: 0; }
+
+/* ── QUICK REF ── */
+.qr-table-wrap { overflow-x: auto; margin: 20px 0; }
+table.qr-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+table.qr-table thead th {
+  background: var(--navy);
+  color: #8ba4cc;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 10px 14px;
+  text-align: left;
+}
+table.qr-table tbody td {
+  padding: 9px 14px;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: middle;
+}
+table.qr-table tr:hover td { background: var(--cream); }
+.qr-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-family: 'DM Mono', monospace;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: 5px;
+}
+
+/* ── INLINE RULE BOX ── */
+.rule-box {
+  background: var(--navy);
+  color: #c8d8f0;
+  border-radius: 10px;
+  padding: 16px 20px;
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 16px 0;
+  border-left: 3px solid var(--accent);
+}
+.rule-box strong { color: #fff; }
+
+/* ── SEARCH HIGHLIGHT ── */
+.search-highlight { background: #fff3a8; border-radius: 2px; }
+.search-hidden { display: none !important; }
+
+/* ── SCROLLBAR ── */
+#sidebar::-webkit-scrollbar { width: 4px; }
+#sidebar::-webkit-scrollbar-track { background: transparent; }
+#sidebar::-webkit-scrollbar-thumb { background: var(--navy-border); border-radius: 2px; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  :root { --sidebar-w: 0px; }
+  #sidebar { display: none; }
+  main { margin-left: 0; }
+  .section { padding: 40px 24px; }
+  .attr-grid { grid-template-columns: 1fr; }
+  .dodont-grid { grid-template-columns: 1fr; }
+  .two-col { grid-template-columns: 1fr; }
+  #hero { padding: 40px 24px; }
+}
+@media (max-width: 600px) {
+  .concept-grid { grid-template-columns: 1fr; }
+  .hero-stats { flex-direction: column; gap: 16px; }
+}
+
+/* ── RELATIONSHIP VISUALIZATION ── */
+.anno-rels {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--rule);
+}
+.anno-rels-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  margin-bottom: 10px;
+}
+.anno-rel-rows { display: flex; flex-direction: column; gap: 7px; }
+.anno-rel-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.rel-source, .rel-target {
+  font-size: 12px;
+  font-family: 'DM Mono', monospace;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+.rel-arrow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--ink3);
+  font-size: 11px;
+  white-space: nowrap;
+}
+.rel-arrow-line {
+  width: 24px;
+  height: 1px;
+  background: var(--ink3);
+  position: relative;
+}
+.rel-name-tag {
+  font-size: 11px;
+  font-family: 'DM Mono', monospace;
+  background: var(--cream);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 2px 7px;
+  color: var(--ink2);
+  white-space: nowrap;
+}
+.rel-arrow-tip { color: var(--ink3); font-size: 13px; line-height: 1; }
+
+/* ── CONCEPT INVENTORY ── */
+.inv-search-wrap {
+  margin-bottom: 24px;
+  position: relative;
+}
+.inv-search-wrap input {
+  width: 100%;
+  max-width: 440px;
+  padding: 10px 14px 10px 38px;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: 'DM Sans', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.inv-search-wrap input:focus { border-color: var(--navy); }
+.inv-search-wrap .inv-search-icon {
+  position: absolute;
+  left: 11px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--ink3);
+  font-size: 15px;
+  pointer-events: none;
+}
+.inv-count {
+  font-size: 12px;
+  color: var(--ink3);
+  margin-top: 8px;
+}
+
+.inv-category { margin-bottom: 28px; }
+.inv-cat-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+.inv-cat-header:hover .inv-cat-name { color: var(--ink); }
+.inv-cat-badge {
+  font-size: 11px;
+  font-family: 'DM Mono', monospace;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 5px;
+  white-space: nowrap;
+}
+.inv-cat-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink2);
+  transition: color 0.15s;
+}
+.inv-cat-count {
+  font-size: 12px;
+  color: var(--ink3);
+  margin-left: auto;
+}
+.inv-cat-toggle {
+  font-size: 12px;
+  color: var(--ink3);
+  transition: transform 0.2s;
+}
+.inv-cat-toggle.open { transform: rotate(90deg); }
+
+.inv-table-wrap { overflow-x: auto; }
+table.inv-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+table.inv-table th {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  padding: 7px 12px;
+  background: var(--cream);
+  border-bottom: 1px solid var(--rule);
+  text-align: left;
+}
+table.inv-table td {
+  padding: 7px 12px;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+table.inv-table tr:last-child td { border-bottom: none; }
+table.inv-table tr:hover td { background: var(--cream); }
+.inv-id {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  color: var(--ink3);
+  white-space: nowrap;
+}
+.inv-name { font-weight: 500; color: var(--ink); }
+.inv-syn {
+  font-size: 12px;
+  color: var(--ink3);
+  font-style: italic;
+}
+.inv-parent {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--ink3);
+}
+.inv-indent { padding-left: 20px; color: var(--ink3); font-size: 12px; }
+.inv-row-hidden { display: none; }
+.inv-no-results { font-size: 13px; color: var(--ink3); padding: 16px 0; }
+
+/* color legend */
+.color-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--ink2);
+}
+.legend-swatch {
+  width: 12px; height: 12px;
+  border-radius: 3px;
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ SIDEBAR ═══ -->
+<aside id="sidebar">
+  <div class="sidebar-logo">
+    <div class="eye-icon"></div>
+    <h1>Annotation Guidelines<br>V4</h1>
+    <p>Pediatric Amblyopia · INCEpTION</p>
+  </div>
+  <div id="search-box">
+    <span class="search-icon">⌕</span>
+    <input type="text" id="search-input" placeholder="Search rules…" oninput="doSearch(this.value)">
+  </div>
+  <nav>
+    <div class="nav-group">
+      <div class="nav-section-label">Getting Started</div>
+      <a class="nav-link active" onclick="navTo('hero')"><span class="dot"></span>Overview</a>
+      <a class="nav-link" onclick="navTo('decision')"><span class="dot"></span>Should I Annotate?</a>
+      <a class="nav-link" onclick="navTo('eligible')"><span class="dot"></span>Eligible Text</a>
+    </div>
+    <div class="nav-group">
+      <div class="nav-section-label">Annotation Rules</div>
+      <a class="nav-link" onclick="navTo('attributes')"><span class="dot"></span>Attributes</a>
+      <a class="nav-link" onclick="navTo('relationships')"><span class="dot"></span>Relationships</a>
+      <a class="nav-link" onclick="navTo('dodont')"><span class="dot"></span>Do / Don't</a>
+    </div>
+    <div class="nav-group">
+      <div class="nav-section-label">Concepts</div>
+      <a class="nav-link" onclick="navTo('concepts')"><span class="dot"></span>Concept Categories</a>
+      <a class="nav-link" onclick="navTo('modifiers')"><span class="dot"></span>Modifiers</a>
+    </div>
+    <div class="nav-group">
+      <div class="nav-section-label">Reference</div>
+      <a class="nav-link" onclick="navTo('examples')"><span class="dot"></span>Annotation Examples</a>
+      <a class="nav-link" onclick="navTo('quickref')"><span class="dot"></span>Quick Reference</a>
+    </div>
+    <div class="nav-group">
+      <div class="nav-section-label">Appendix</div>
+      <a class="nav-link" onclick="navTo('inventory')"><span class="dot"></span>Concept Inventory</a>
+    </div>
+  </nav>
+</aside>
+
+<!-- ═══ MAIN ═══ -->
+<main>
+
+<!-- HERO -->
+<section id="hero" class="section" style="max-width:none; border-bottom: 1px solid #2a3f66;">
+  <div class="hero-badge">● INCEpTION · Version 4</div>
+  <h1 class="hero-title">Annotation<br>Guidelines for<br><em>Pediatric Amblyopia</em></h1>
+  <p class="hero-desc">A practical reference for clinical annotators marking entities, relationships, and attributes in ophthalmology notes.</p>
+</section>
+
+<!-- WORKFLOW -->
+<section id="overview" class="section">
+  <div class="section-header">
+    <span class="section-number">§ 1</span>
+    <div>
+      <div class="section-title">How Annotation Works</div>
+      <div class="section-subtitle">Each annotated note is built from three layers: spans, attributes, and relationships.</div>
+    </div>
+  </div>
+
+  <div class="workflow-steps">
+    <div class="workflow-step">
+      <div class="step-box">
+        <div class="step-num">1</div>
+        <div class="step-title">Mark Spans</div>
+        <div class="step-desc">Highlight minimal continuous text expressing a concept. Assign one label per span.</div>
+      </div>
+      <div class="step-arrow">→</div>
+    </div>
+    <div class="workflow-step">
+      <div class="step-box">
+        <div class="step-num">2</div>
+        <div class="step-title">Set Attributes</div>
+        <div class="step-desc">Add assertion / experiencer / temporality only when the text explicitly indicates a non-default value.</div>
+      </div>
+      <div class="step-arrow">→</div>
+    </div>
+    <div class="workflow-step">
+      <div class="step-box">
+        <div class="step-num">3</div>
+        <div class="step-title">Add Relationships</div>
+        <div class="step-desc">Link spans that the text connects: laterality to diagnosis, adherence to treatment, etc.</div>
+      </div>
+      <div class="step-arrow">→</div>
+    </div>
+    <div class="workflow-step">
+      <div class="step-box">
+        <div class="step-num">4</div>
+        <div class="step-title">QC Check</div>
+        <div class="step-desc">Verify every laterality/severity/pattern in eligible text is linked. No structured-data inferences.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rule-box">
+    <strong>Golden rule:</strong> Annotate what is <em>written</em>, not what you think the clinician meant. Do not infer missing laterality, missing time, or missing diagnoses from context or structured fields.
+  </div>
+</section>
+
+<!-- DECISION FLOWCHART -->
+<section id="decision" class="section">
+  <div class="section-header">
+    <span class="section-number">§ 2</span>
+    <div>
+      <div class="section-title">Should I Annotate This?</div>
+      <div class="section-subtitle">Walk through this decision flow when you're unsure whether a piece of text is eligible.</div>
+    </div>
+  </div>
+
+  <div id="flowchart-container">
+    <div class="flow-progress" id="flow-progress"></div>
+
+    <!-- Step 0 -->
+    <div class="flow-step active" data-step="0">
+      <div class="flow-question">Is this free-text narrative — not a table, grid, or templated pull?</div>
+      <div class="flow-hint">Structured data blocks (VA tables, refraction grids, slit lamp template rows, aligned columns) are never eligible, even if they appear as text in the note.</div>
+      <div class="flow-options">
+        <button class="flow-btn yes" onclick="flowNext(0,'yes')">Yes — it's narrative text</button>
+        <button class="flow-btn no" onclick="flowNext(0,'no')">No — it's structured/tabular</button>
+      </div>
+    </div>
+
+    <!-- Step 1 -->
+    <div class="flow-step" data-step="1">
+      <div class="flow-question">Is it in HPI, Assessment, Plan, or other clearly clinician-authored free text?</div>
+      <div class="flow-hint">Eligible sections: HPI / Interval History, Assessment, Plan / MDM, and other narrative lines clearly written by the clinician. Physical exam template blocks remain ineligible even if they look like text.</div>
+      <div class="flow-options">
+        <button class="flow-btn yes" onclick="flowNext(1,'yes')">Yes</button>
+        <button class="flow-btn no" onclick="flowNext(1,'no')">No — physical exam / template</button>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="flow-step" data-step="2">
+      <div class="flow-question">Is this a ROS checklist — including "denies…" symptom lines?</div>
+      <div class="flow-hint">ROS checklists are always ineligible, even when symptoms are named. "Denies blurred vision" in a checklist should not be annotated.</div>
+      <div class="flow-options">
+        <button class="flow-btn yes" onclick="flowNext(2,'yes')">Yes — ROS checklist</button>
+        <button class="flow-btn no" onclick="flowNext(2,'no')">No — this is narrative</button>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <!-- Outcome: Go -->
+    <div class="flow-step" data-step="go">
+      <div class="flow-outcome go">
+        <div class="outcome-icon">✓</div>
+        <div>
+          <div class="outcome-title">Annotate this text</div>
+          <div class="outcome-detail">This text is eligible. Annotate all relevant concept spans, set attributes where indicated, and add relationships. Use minimal spans and only annotate what is explicitly written.</div>
+        </div>
+      </div>
+      <button class="flow-restart" onclick="flowReset()">↺ Start over</button>
+    </div>
+
+    <!-- Outcome: Stop (structured) -->
+    <div class="flow-step" data-step="stop-structured">
+      <div class="flow-outcome stop">
+        <div class="outcome-icon">✗</div>
+        <div>
+          <div class="outcome-title">Do not annotate — structured data</div>
+          <div class="outcome-detail">Skip tables, grids, and structured blocks. <strong>Exception:</strong> if a clearly narrative interpretation sentence is embedded inside a structured block, annotate only that sentence.</div>
+        </div>
+      </div>
+      <button class="flow-restart" onclick="flowReset()">↺ Start over</button>
+    </div>
+
+    <!-- Outcome: Stop (template) -->
+    <div class="flow-step" data-step="stop-template">
+      <div class="flow-outcome stop">
+        <div class="outcome-icon">✗</div>
+        <div>
+          <div class="outcome-title">Do not annotate — templated section</div>
+          <div class="outcome-detail">Physical exam / base exam sections with templated pulls are ineligible. Skip the entire block unless a narrative interpretation line is clearly embedded.</div>
+        </div>
+      </div>
+      <button class="flow-restart" onclick="flowReset()">↺ Start over</button>
+    </div>
+
+    <!-- Outcome: Stop (ROS) -->
+    <div class="flow-step" data-step="stop-ros">
+      <div class="flow-outcome stop">
+        <div class="outcome-icon">✗</div>
+        <div>
+          <div class="outcome-title">Do not annotate — ROS checklist</div>
+          <div class="outcome-detail">ROS checklists are always ineligible, including "denies…" lines. If the same symptom appears in the HPI as narrative, annotate it there.</div>
+        </div>
+      </div>
+      <button class="flow-restart" onclick="flowReset()">↺ Start over</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ELIGIBLE TEXT -->
+<section id="eligible" class="section">
+  <div class="section-header">
+    <span class="section-number">§ 3</span>
+    <div>
+      <div class="section-title">Eligible vs. Ineligible Text</div>
+      <div class="section-subtitle">Annotate for high recall within eligible free-text. Avoid noise from structured pulls and boilerplate.</div>
+    </div>
+  </div>
+  <div class="two-col">
+    <div class="check-card yes-card">
+      <div class="card-title">✓ Annotate (Eligible)</div>
+      <ul class="check-list">
+        <li>HPI / Interval History</li>
+        <li>Assessment section</li>
+        <li>Plan / Medical Decision Making</li>
+        <li>Narrative lines embedded in structured sections</li>
+        <li>Family history (set experiencer=family)</li>
+        <li>Past ocular history when in free-text</li>
+      </ul>
+    </div>
+    <div class="check-card no-card">
+      <div class="card-title">✗ Do Not Annotate (Ineligible)</div>
+      <ul class="check-list">
+        <li>Physical exam / Base exam structured blocks</li>
+        <li>VA tables, refraction grids, slit lamp rows</li>
+        <li>ROS checklists ("denies blurred vision")</li>
+        <li>Boilerplate counseling without patient-specific detail</li>
+        <li>Administrative boilerplate</li>
+        <li>Copy-forwarded duplicate sections (annotate only most current)</li>
+      </ul>
+    </div>
+  </div>
+  <div class="rule-box">
+    <strong>Span selection:</strong> Always use <em>minimal spans</em> — the smallest continuous stretch of text that expresses the concept. Do not include adjacent words that belong to other concepts (laterality, severity, etc.). One concept per span. No discontinuous annotations.
+  </div>
+</section>
+
+<!-- ATTRIBUTES -->
+<section id="attributes" class="section">
+  <div class="section-header">
+    <span class="section-number">§ 4</span>
+    <div>
+      <div class="section-title">Attributes</div>
+      <div class="section-subtitle">Attributes describe a single span. Change them only when the note text explicitly indicates a non-default value.</div>
+    </div>
+  </div>
+
+  <div class="attr-grid">
+    <!-- Assertion -->
+    <div class="attr-card">
+      <div class="attr-card-head">
+        <div class="attr-name">Assertion</div>
+        <div class="attr-def">Is the concept present, absent, or uncertain?</div>
+      </div>
+      <div class="attr-card-body">
+        <div class="attr-value default">
+          <div class="val-name">present <span class="val-default">default</span></div>
+          <div class="val-example">Concept is asserted as true</div>
+        </div>
+        <div class="attr-value alt">
+          <div class="val-name">absent</div>
+          <div class="attr-triggers">
+            <span class="trigger-tag">no</span><span class="trigger-tag">denies</span><span class="trigger-tag">without</span><span class="trigger-tag">ruled out</span><span class="trigger-tag">not consistent with</span><span class="trigger-tag">does not have</span>
+          </div>
+          <div class="val-example">"No diplopia." → diplopia absent</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Experiencer -->
+    <div class="attr-card">
+      <div class="attr-card-head">
+        <div class="attr-name">Experiencer</div>
+        <div class="attr-def">Who does the concept apply to?</div>
+      </div>
+      <div class="attr-card-body">
+        <div class="attr-value default">
+          <div class="val-name">patient <span class="val-default">default</span></div>
+          <div class="val-example">Applies to the patient. Caregiver reports still = patient.</div>
+        </div>
+        <div class="attr-value alt">
+          <div class="val-name">family</div>
+          <div class="attr-triggers">
+            <span class="trigger-tag">family history</span><span class="trigger-tag">mother has</span><span class="trigger-tag">father had</span><span class="trigger-tag">sibling with</span>
+          </div>
+          <div class="val-example">"Mother had amblyopia as a child." → family</div>
+        </div>
+        <div style="margin-top: 12px; font-size: 12px; color: var(--ink3); background: var(--cream); border-radius: 6px; padding: 10px 12px; line-height: 1.5;">
+          <strong style="color: var(--ink2);">Note:</strong> In pediatric notes, parents often report symptoms on behalf of the child. This does <em>not</em> change experiencer — it remains "patient."
+        </div>
+      </div>
+    </div>
+
+    <!-- Temporality -->
+    <div class="attr-card">
+      <div class="attr-card-head">
+        <div class="attr-name">Temporality</div>
+        <div class="attr-def">Is the concept ongoing or historical?</div>
+      </div>
+      <div class="attr-card-body">
+        <div class="attr-value default">
+          <div class="val-name">current <span class="val-default">default</span></div>
+          <div class="val-example">Ongoing at time of note, even if it started earlier.</div>
+        </div>
+        <div class="attr-value alt">
+          <div class="val-name">historical</div>
+          <div class="attr-triggers">
+            <span class="trigger-tag">previously</span><span class="trigger-tag">history of</span><span class="trigger-tag">s/p</span><span class="trigger-tag">resolved</span><span class="trigger-tag">no longer</span><span class="trigger-tag">stopped</span>
+          </div>
+          <div class="val-example">"Esotropia s/p BMR surgery." → procedure is historical</div>
+        </div>
+        <div style="margin-top: 12px; font-size: 12px; color: var(--ink3); background: var(--cream); border-radius: 6px; padding: 10px 12px; line-height: 1.5;">
+          <strong style="color: var(--ink2);">Note:</strong> Something that happened in the past but is <em>still active</em> = current. Historical + present assertion is valid: "past procedure, still relevant."
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RELATIONSHIPS -->
+<section id="relationships" class="section">
+  <div class="section-header">
+    <span class="section-number">§ 5</span>
+    <div>
+      <div class="section-title">Relationships</div>
+      <div class="section-subtitle">Links between two annotated spans. Only create relationships when supported by the text — never from inference.</div>
+    </div>
+  </div>
+
+  <div class="rel-table-wrap">
+    <table class="rel-table">
+      <thead>
+        <tr>
+          <th>Relationship</th>
+          <th>From</th>
+          <th>To</th>
+          <th>When / Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="rel-name-cell">has_laterality</span></td>
+          <td>Dx, Sx, Exam</td>
+          <td>Laterality</td>
+          <td><span class="rel-allowed yes">✓</span> <span class="rel-example-text">"left amblyopia" → Dx has_laterality Left</span></td>
+        </tr>
+        <tr>
+          <td><span class="rel-name-cell">has_severity</span></td>
+          <td>Dx, Sx, Exam</td>
+          <td>Severity</td>
+          <td><span class="rel-allowed yes">✓</span> <span class="rel-example-text">"severe amblyopia" → Dx has_severity Severe</span></td>
+        </tr>
+        <tr>
+          <td><span class="rel-name-cell">has_pattern</span></td>
+          <td>Dx, Sx</td>
+          <td>Pattern</td>
+          <td><span class="rel-allowed yes">✓</span> <span class="rel-example-text">"amblyopia improving" → Dx has_pattern Improving</span></td>
+        </tr>
+        <tr>
+          <td><span class="rel-name-cell">has_onset</span></td>
+          <td>Dx, Sx</td>
+          <td>Temporal</td>
+          <td><span class="rel-allowed yes">✓</span> <span class="rel-example-text">"crossing since age 2" → Sx has_onset TemporalAge</span></td>
+        </tr>
+        <tr>
+          <td><span class="rel-name-cell">has_adherence</span></td>
+          <td>Treatment</td>
+          <td>Adherence</td>
+          <td><span class="rel-allowed yes">✓</span> <span class="rel-example-text">"never wore them" → Tx has_adherence AdherencePoor</span></td>
+        </tr>
+        <tr>
+          <td><span class="rel-name-cell">has_regimen</span></td>
+          <td>Treatment</td>
+          <td>Temporal</td>
+          <td><span class="rel-allowed yes">✓</span> <span class="rel-example-text">"patch 2 hrs/day for 3 months" → Tx has_regimen Freq+Duration</span></td>
+        </tr>
+        <tr>
+          <td><span class="rel-name-cell">has_status</span></td>
+          <td>Treatment</td>
+          <td>Status</td>
+          <td><span class="rel-allowed yes">✓</span> <span class="rel-example-text">"will not patch given age" → Tx has_status Deferred</span></td>
+        </tr>
+        <tr>
+          <td><span class="rel-name-cell">has_phase</span></td>
+          <td>Treatment</td>
+          <td>Phase</td>
+          <td><span class="rel-allowed yes">✓</span> <span class="rel-example-text">"taper patching" → Tx has_phase Tapering</span></td>
+        </tr>
+        <tr>
+          <td><span class="rel-name-cell">has_outcome</span></td>
+          <td>Treatment</td>
+          <td>Outcome</td>
+          <td><span class="rel-allowed yes">✓</span> <span class="rel-example-text">"reverse amblyopia" → Tx has_outcome ReverseAmblyopia</span></td>
+        </tr>
+        <tr>
+          <td><span class="rel-name-cell">has_fixation_context</span></td>
+          <td>Test, ClinMeasure</td>
+          <td>FixationContext</td>
+          <td><span class="rel-allowed yes">✓</span> <span class="rel-example-text">"cover test at distance" → Test has_fixation_context Distance</span></td>
+        </tr>
+        <tr>
+          <td><span class="rel-name-cell">has_scheduling</span></td>
+          <td>Treatment, Plan</td>
+          <td>Temporal</td>
+          <td><span class="rel-allowed yes">✓</span> <span class="rel-example-text">"RTC 3 months" → Plan has_scheduling TemporalDuration</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Scoping Rules</h3>
+  <div class="two-col">
+    <div class="check-card yes-card">
+      <div class="card-title">Laterality Scoping</div>
+      <ul class="check-list">
+        <li>Link laterality to every concept it explicitly modifies in the local phrase</li>
+        <li>If stated once in a bullet/problem-line, link to each item in that coordinated line</li>
+        <li>OK to repeat across a coordinated phrase: "both eyes — myopia and astigmatism"</li>
+      </ul>
+    </div>
+    <div class="check-card no-card">
+      <div class="card-title">Don't Do This</div>
+      <ul class="check-list">
+        <li>Don't carry laterality across unrelated sentences unless explicitly repeated</li>
+        <li>Don't infer laterality from VA table values in structured blocks</li>
+        <li>Don't automatically carry "both eyes" forward to a concept in the next sentence</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- DO/DON'T -->
+<section id="dodont" class="section">
+  <div class="section-header">
+    <span class="section-number">§ 6</span>
+    <div>
+      <div class="section-title">Common Mistakes</div>
+      <div class="section-subtitle">The most frequent annotation errors — and what to do instead.</div>
+    </div>
+  </div>
+
+  <div class="dodont-grid">
+    <div class="dd-pair-label">Laterality</div>
+    <div class="dd-card do">
+      <div class="dd-head">✓ Do</div>
+      <div class="dd-text">Link laterality only when explicitly stated in the free text.</div>
+      <div class="dd-example">"Amblyopia left eye" → DiagAmblyopia <strong>has_laterality</strong> LateralityLeftEye</div>
+    </div>
+    <div class="dd-card dont">
+      <div class="dd-head">✗ Don't</div>
+      <div class="dd-text">Do not infer laterality from structured VA tables or exam blocks.</div>
+      <div class="dd-example">Seeing "OS 20/80" in a VA table does NOT mean you can link Left to a diagnosis in the narrative.</div>
+    </div>
+
+    <div class="dd-pair-label">ROS vs. HPI</div>
+    <div class="dd-card do">
+      <div class="dd-head">✓ Do</div>
+      <div class="dd-text">Annotate symptoms mentioned in narrative HPI or Assessment.</div>
+      <div class="dd-example">"Mom reports the left eye crosses intermittently" → SympCrossing + Laterality + Pattern</div>
+    </div>
+    <div class="dd-card dont">
+      <div class="dd-head">✗ Don't</div>
+      <div class="dd-text">Do not annotate symptoms from ROS checklists, even named ones.</div>
+      <div class="dd-example">"Denies blurred vision" in a ROS checklist → skip entirely</div>
+    </div>
+
+    <div class="dd-pair-label">Compound "-ic" Diagnoses</div>
+    <div class="dd-card do">
+      <div class="dd-head">✓ Do</div>
+      <div class="dd-text">Split compound phrases into separate concepts when no single ontology match exists.</div>
+      <div class="dd-example">"anisometropic esotropia" → DiagAnisometropia + DiagEsotropia (two separate spans)</div>
+    </div>
+    <div class="dd-card dont">
+      <div class="dd-head">✗ Don't</div>
+      <div class="dd-text">Do not invent subtype semantics for compound phrases not in the ontology.</div>
+      <div class="dd-example">Do not create a fake "DiagAnisometropicEsotropia" concept or treat one as a modifier of the other.</div>
+    </div>
+
+    <div class="dd-pair-label">Copy-Forward Text</div>
+    <div class="dd-card do">
+      <div class="dd-head">✓ Do</div>
+      <div class="dd-text">When text is duplicated in the note, annotate only the most current version.</div>
+      <div class="dd-example">Prefer last Assessment/Plan over "Previous Exam Notes" or earlier occurrences.</div>
+    </div>
+    <div class="dd-card dont">
+      <div class="dd-head">✗ Don't</div>
+      <div class="dd-text">Do not annotate older copy-forward duplicates unless they contain unique clinical info not present elsewhere.</div>
+      <div class="dd-example">If the same HPI block appears twice, skip the older one.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONCEPT CATEGORIES -->
+<section id="concepts" class="section">
+  <div class="section-header">
+    <span class="section-number">§ 7</span>
+    <div>
+      <div class="section-title">Concept Categories</div>
+      <div class="section-subtitle">Eleven categories of clinical concepts to annotate. Each span maps to exactly one category.</div>
+    </div>
+  </div>
+
+  <div class="color-legend">
+    <div class="legend-item"><div class="legend-swatch" style="background:var(--dx)"></div>Diagnosis</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:var(--sx)"></div>Symptom</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:var(--exam)"></div>Exam Finding</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:#0891b2"></div>Test</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:#0f766e"></div>Treatment</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:var(--proc)"></div>Procedure</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:var(--out)"></div>Outcome</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:var(--ad)"></div>Adherence</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:var(--plan)"></div>Plan</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:var(--sdoh)"></div>SDoH</div>
+  </div>
+
+  <div class="concept-grid">
+
+    <div class="concept-card">
+      <div class="concept-card-head">
+        <span class="concept-name">Diagnosis</span>
+        <span class="concept-badge" style="background:var(--dx-bg);color:var(--dx)">Dx</span>
+      </div>
+      <div class="concept-card-body">
+        <div class="concept-tag-line">Named clinical condition stated in the note (current or historical).</div>
+        <div class="concept-skip">Skip diagnoses in structured pulls/tables.</div>
+        <div class="rel-chips">
+          <span class="rel-chip">has_laterality</span><span class="rel-chip">has_severity</span><span class="rel-chip">has_pattern</span><span class="rel-chip">has_onset</span>
+        </div>
+        <div class="concept-examples">
+          <div class="concept-example"><span class="ex-text">"anisometropic amblyopia"</span><span class="ex-arrow">→</span>DiagAnisometropicAmblyopia</div>
+          <div class="concept-example"><span class="ex-text">"residual esotropia"</span><span class="ex-arrow">→</span>DiagEsotropia + PatternResidual</div>
+          <div class="concept-example"><span class="ex-text">"amblyopia suspect"</span><span class="ex-arrow">→</span>DiagAmblyopiaSuspect</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="concept-card">
+      <div class="concept-card-head">
+        <span class="concept-name">Symptom</span>
+        <span class="concept-badge" style="background:var(--sx-bg);color:var(--sx)">Sx</span>
+      </div>
+      <div class="concept-card-body">
+        <div class="concept-tag-line">Patient/caregiver-reported symptoms in HPI/Interval History.</div>
+        <div class="concept-skip">Skip ROS checklists ("denies...") and structured exam blocks.</div>
+        <div class="rel-chips">
+          <span class="rel-chip">has_laterality</span><span class="rel-chip">has_onset</span><span class="rel-chip">has_pattern</span><span class="rel-chip">has_severity</span>
+        </div>
+        <div class="concept-examples">
+          <div class="concept-example"><span class="ex-text">"left eye crosses"</span><span class="ex-arrow">→</span>SympCrossing + LateralityLeft</div>
+          <div class="concept-example"><span class="ex-text">"eye drifting intermittently"</span><span class="ex-arrow">→</span>SympDrifting + PatternIntermittent</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="concept-card">
+      <div class="concept-card-head">
+        <span class="concept-name">Exam Finding</span>
+        <span class="concept-badge" style="background:var(--exam-bg);color:var(--exam)">Exam</span>
+      </div>
+      <div class="concept-card-body">
+        <div class="concept-tag-line">Functional/observed findings in narrative Assessment/Plan — not structured exam blocks.</div>
+        <div class="concept-skip">Skip the physical exam block by default; only annotate narrative interpretation lines.</div>
+        <div class="rel-chips">
+          <span class="rel-chip">has_laterality</span><span class="rel-chip">has_pattern</span><span class="rel-chip">has_severity</span>
+        </div>
+        <div class="concept-examples">
+          <div class="concept-example"><span class="ex-text">"one line of difference"</span><span class="ex-arrow">→</span>ExamInterocularDiff1Line</div>
+          <div class="concept-example"><span class="ex-text">"moderate left face turn"</span><span class="ex-arrow">→</span>ExamAbnormalHeadPosture</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="concept-card">
+      <div class="concept-card-head">
+        <span class="concept-name">Test</span>
+        <span class="concept-badge" style="background:var(--exam-bg);color:var(--exam)">Test</span>
+      </div>
+      <div class="concept-card-body">
+        <div class="concept-tag-line">Test being performed, ordered, or attempted — in Plan/narrative.</div>
+        <div class="concept-skip">Skip tests listed only in structured exam tables.</div>
+        <div class="rel-chips">
+          <span class="rel-chip">has_fixation_context</span>
+        </div>
+        <div class="concept-examples">
+          <div class="concept-example"><span class="ex-text">"attempt Teller visual acuity"</span><span class="ex-arrow">→</span>TestVisualAcuity</div>
+          <div class="concept-example"><span class="ex-text">"stereo testing at near next visit"</span><span class="ex-arrow">→</span>TestStereoacuity + FixationNear</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="concept-card">
+      <div class="concept-card-head">
+        <span class="concept-name">Clinical Measure</span>
+        <span class="concept-badge" style="background:var(--exam-bg);color:var(--exam)">CM</span>
+      </div>
+      <div class="concept-card-body">
+        <div class="concept-tag-line">The measure/construct itself (not the act of testing). E.g. "evaluate visual acuity."</div>
+        <div class="concept-skip">Skip numeric values from structured tables.</div>
+        <div class="rel-chips">
+          <span class="rel-chip">has_fixation_context</span>
+        </div>
+        <div class="concept-examples">
+          <div class="concept-example"><span class="ex-text">"re-check near visual acuity"</span><span class="ex-arrow">→</span>ClinMVisualAcuity + FixationNear</div>
+          <div class="concept-example"><span class="ex-text">"distance stereoacuity remains poor"</span><span class="ex-arrow">→</span>ClinMStereoacuity + FixationDistance</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="concept-card">
+      <div class="concept-card-head">
+        <span class="concept-name">Treatment</span>
+        <span class="concept-badge" style="background:var(--tx-bg);color:var(--tx)">Tx</span>
+      </div>
+      <div class="concept-card-body">
+        <div class="concept-tag-line">Treatment in use, recommended, adjusted, refused, or not started.</div>
+        <div class="concept-skip">Skip treatments only in structured prescription blocks unless narrative.</div>
+        <div class="rel-chips">
+          <span class="rel-chip">has_adherence</span><span class="rel-chip">has_regimen</span><span class="rel-chip">has_status</span><span class="rel-chip">has_phase</span><span class="rel-chip">has_outcome</span>
+        </div>
+        <div class="concept-examples">
+          <div class="concept-example"><span class="ex-text">"patch 2 hours/day"</span><span class="ex-arrow">→</span>TxPatching + TemporalFrequency</div>
+          <div class="concept-example"><span class="ex-text">"never really wore glasses"</span><span class="ex-arrow">→</span>TxGlasses + AdherencePoor</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="concept-card">
+      <div class="concept-card-head">
+        <span class="concept-name">Procedure</span>
+        <span class="concept-badge" style="background:var(--proc-bg);color:var(--proc)">Proc</span>
+      </div>
+      <div class="concept-card-body">
+        <div class="concept-tag-line">Surgery or procedures in eligible free-text (HPI, POH, Assessment, Plan).</div>
+        <div class="concept-skip">Often historical — use temporality=historical for s/p procedures.</div>
+        <div class="rel-chips">
+          <span class="rel-chip">temporality=historical</span>
+        </div>
+        <div class="concept-examples">
+          <div class="concept-example"><span class="ex-text">"s/p BMR"</span><span class="ex-arrow">→</span>ProcStrabismusSurgery (historical)</div>
+          <div class="concept-example"><span class="ex-text">"cataract extraction"</span><span class="ex-arrow">→</span>ProcCataractExtraction</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="concept-card">
+      <div class="concept-card-head">
+        <span class="concept-name">Outcome</span>
+        <span class="concept-badge" style="background:var(--out-bg);color:var(--out)">Out</span>
+      </div>
+      <div class="concept-card-body">
+        <div class="concept-tag-line">Discrete outcome label explicitly stated as result of treatment or condition course.</div>
+        <div class="concept-skip">Don't use for course words like "improving" — those are Pattern.</div>
+        <div class="rel-chips">
+          <span class="rel-chip">Treatment has_outcome →</span>
+        </div>
+        <div class="concept-examples">
+          <div class="concept-example"><span class="ex-text">"reverse amblyopia"</span><span class="ex-arrow">→</span>OutcomeReverseAmblyopia</div>
+          <div class="concept-example"><span class="ex-text">"patch allergy"</span><span class="ex-arrow">→</span>OutcomeBandageAllergy</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="concept-card">
+      <div class="concept-card-head">
+        <span class="concept-name">Adherence</span>
+        <span class="concept-badge" style="background:var(--ad-bg);color:var(--ad)">Ad</span>
+      </div>
+      <div class="concept-card-body">
+        <div class="concept-tag-line">Adherence quality or barriers for a treatment — annotate what is written.</div>
+        <div class="concept-skip">Don't infer adherence. Requires explicit text evidence.</div>
+        <div class="rel-chips">
+          <span class="rel-chip">Treatment has_adherence →</span>
+        </div>
+        <div class="concept-examples">
+          <div class="concept-example"><span class="ex-text">"never wore them"</span><span class="ex-arrow">→</span>AdherencePoor → TxGlasses</div>
+          <div class="concept-example"><span class="ex-text">"refuses patch"</span><span class="ex-arrow">→</span>AdherencePatchRefusal → TxPatching</div>
+          <div class="concept-example"><span class="ex-text">"lost glasses"</span><span class="ex-arrow">→</span>AdherenceLostGlasses</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="concept-card">
+      <div class="concept-card-head">
+        <span class="concept-name">Plan</span>
+        <span class="concept-badge" style="background:var(--plan-bg);color:var(--plan)">Plan</span>
+      </div>
+      <div class="concept-card-body">
+        <div class="concept-tag-line">Plan actions in free-text: follow-up, referral, monitoring, adjustment.</div>
+        <div class="concept-skip">Skip admin boilerplate without patient-specific info.</div>
+        <div class="rel-chips">
+          <span class="rel-chip">has_scheduling</span>
+        </div>
+        <div class="concept-examples">
+          <div class="concept-example"><span class="ex-text">"RTC 3 months"</span><span class="ex-arrow">→</span>PlanFollowUp + TemporalDuration</div>
+          <div class="concept-example"><span class="ex-text">"referral to strabismus clinic"</span><span class="ex-arrow">→</span>PlanReferral</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="concept-card">
+      <div class="concept-card-head">
+        <span class="concept-name">Social Determinants</span>
+        <span class="concept-badge" style="background:var(--sdoh-bg);color:var(--sdoh)">SDoH</span>
+      </div>
+      <div class="concept-card-body">
+        <div class="concept-tag-line">Social/structural factors explicitly affecting care access or adherence.</div>
+        <div class="concept-skip">Don't infer — only annotate when explicitly stated in the text.</div>
+        <div class="rel-chips">
+          <span class="rel-chip">co-occurs with Adherence</span>
+        </div>
+        <div class="concept-examples">
+          <div class="concept-example"><span class="ex-text">"missed visits due to transportation"</span><span class="ex-arrow">→</span>SDOHTransportation</div>
+          <div class="concept-example"><span class="ex-text">"cannot afford glasses"</span><span class="ex-arrow">→</span>SDOHAffordHealthcare</div>
+          <div class="concept-example"><span class="ex-text">"needs interpreter"</span><span class="ex-arrow">→</span>SDOHLanguage</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- MODIFIERS -->
+<section id="modifiers" class="section">
+  <div class="section-header">
+    <span class="section-number">§ 8</span>
+    <div>
+      <div class="section-title">Modifier Concepts</div>
+      <div class="section-subtitle">Context and modifier spans linked to primary concepts via relationships.</div>
+    </div>
+  </div>
+
+  <div class="mod-grid">
+    <div class="mod-card">
+      <div class="mod-head">
+        <div class="mod-dot" style="background:var(--lat)"></div>
+        <div class="mod-name">Laterality</div>
+        <div class="mod-abbr">Lat</div>
+      </div>
+      <div class="mod-rule">Explicitly stated eye references: left/right, OD/OS/OU, both eyes, fellow eye, amblyopic eye.</div>
+      <div class="mod-examples">
+        <div class="mod-ex">"left" → LateralityLeftEye (LateralityOS)</div>
+        <div class="mod-ex">"both eyes" → LateralityBothEyes (LateralityOU)</div>
+        <div class="mod-ex">"amblyopic eye" → LateralityAmblyopicEye</div>
+      </div>
+    </div>
+
+    <div class="mod-card">
+      <div class="mod-head">
+        <div class="mod-dot" style="background:var(--sev)"></div>
+        <div class="mod-name">Severity</div>
+        <div class="mod-abbr">Sev</div>
+      </div>
+      <div class="mod-rule">Severity words when explicitly stated: mild, moderate, severe.</div>
+      <div class="mod-examples">
+        <div class="mod-ex">"severe amblyopia" → SeveritySevere → has_severity</div>
+        <div class="mod-ex">"mild esotropia" → SeverityMild → has_severity</div>
+      </div>
+    </div>
+
+    <div class="mod-card">
+      <div class="mod-head">
+        <div class="mod-dot" style="background:var(--pat)"></div>
+        <div class="mod-name">Pattern</div>
+        <div class="mod-abbr">Pat</div>
+      </div>
+      <div class="mod-rule">Course/behavior over time: intermittent, constant, improving, worsening, stable, residual, recurrent.</div>
+      <div class="mod-examples">
+        <div class="mod-ex">"amblyopia improving" → PatternImproving</div>
+        <div class="mod-ex">"residual esotropia" → PatternResidual</div>
+        <div class="mod-ex">"intermittent exotropia" → PatternIntermittent</div>
+      </div>
+    </div>
+
+    <div class="mod-card">
+      <div class="mod-head">
+        <div class="mod-dot" style="background:var(--fix)"></div>
+        <div class="mod-name">Fixation Context</div>
+        <div class="mod-abbr">Fix</div>
+      </div>
+      <div class="mod-rule">Near / Distance when explicitly stated with a test or clinical measure. Do not infer.</div>
+      <div class="mod-examples">
+        <div class="mod-ex">"near visual acuity" → FixationNear → ClinMVisualAcuity</div>
+        <div class="mod-ex">"cover test at distance" → FixationDistance → TestCoverTest</div>
+      </div>
+    </div>
+
+    <div class="mod-card">
+      <div class="mod-head">
+        <div class="mod-dot" style="background:var(--tmp)"></div>
+        <div class="mod-name">Temporal</div>
+        <div class="mod-abbr">Temp</div>
+      </div>
+      <div class="mod-rule">Date/time, age of onset, frequency, or duration. Tag spans only — no normalization. TemporalAge is for onset only, not demographics.</div>
+      <div class="mod-examples">
+        <div class="mod-ex">"since age 2" → TemporalAge → has_onset</div>
+        <div class="mod-ex">"2 hours/day" → TemporalFrequency → has_regimen</div>
+        <div class="mod-ex">"for 3 months" → TemporalDuration → has_regimen</div>
+      </div>
+    </div>
+
+    <div class="mod-card">
+      <div class="mod-head">
+        <div class="mod-dot" style="background:var(--stat)"></div>
+        <div class="mod-name">Status</div>
+        <div class="mod-abbr">Stat</div>
+      </div>
+      <div class="mod-rule">Explicit status cues for treatments: new, continued, unchanged, stopped, restarted, deferred.</div>
+      <div class="mod-examples">
+        <div class="mod-ex">"continue glasses" → StatusContinued</div>
+        <div class="mod-ex">"will not patch" → StatusDeferred</div>
+        <div class="mod-ex">"stop atropine" → StatusStopped</div>
+      </div>
+    </div>
+
+    <div class="mod-card">
+      <div class="mod-head">
+        <div class="mod-dot" style="background:var(--proc)"></div>
+        <div class="mod-name">Phase</div>
+        <div class="mod-abbr">Phas</div>
+      </div>
+      <div class="mod-rule">Phase of treatment explicitly stated: tapering, trial.</div>
+      <div class="mod-examples">
+        <div class="mod-ex">"trial of atropine" → PhaseTrial → has_phase</div>
+        <div class="mod-ex">"taper patching" → PhaseTapering → has_phase</div>
+      </div>
+    </div>
+
+    <div class="mod-card">
+      <div class="mod-head">
+        <div class="mod-dot" style="background:var(--out)"></div>
+        <div class="mod-name">Dose</div>
+        <div class="mod-abbr">Dose</div>
+      </div>
+      <div class="mod-rule">Dosage expressions when explicitly stated. Tag the span; link to treatment when possible.</div>
+      <div class="mod-examples">
+        <div class="mod-ex">"atropine 1 drop nightly" → DoseDosage</div>
+        <div class="mod-ex">"0.01% atropine" → DoseDosage</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ANNOTATION EXAMPLES -->
+<section id="examples" class="section">
+  <div class="section-header">
+    <span class="section-number">§ 9</span>
+    <div>
+      <div class="section-title">Annotation Examples</div>
+      <div class="section-subtitle">Hover over highlighted spans to see labels. Each example shows spans, attributes, and relationships.</div>
+    </div>
+  </div>
+
+  <div class="anno-examples">
+
+    <!-- Example 1 -->
+    <div class="anno-example">
+      <div class="anno-example-head">Example 1 — Assessment</div>
+      <div class="anno-example-body">
+        <div class="anno-text">
+          <span class="span-sev" title="SeveritySevere">severe</span> <span class="span-lat" title="LateralityLeftEye">left</span> <span class="span-dx" title="DiagAnisometropicAmblyopia">anisometropic amblyopia</span>
+        </div>
+        <div class="anno-detail">
+          <div class="anno-span-detail detail-dx">
+            <div class="span-label">DiagAnisometropicAmblyopia</div>
+            <div class="span-text-ref">"anisometropic amblyopia"</div>
+            <div class="span-attrs">
+              <span class="attr-pill">assertion: present</span>
+              <span class="attr-pill">experiencer: patient</span>
+              <span class="attr-pill">temporality: current</span>
+            </div>
+          </div>
+          <div class="anno-span-detail detail-lat">
+            <div class="span-label">LateralityLeftEye</div>
+            <div class="span-text-ref">"left"</div>
+          </div>
+          <div class="anno-span-detail detail-sev">
+            <div class="span-label">SeveritySevere</div>
+            <div class="span-text-ref">"severe"</div>
+          </div>
+        </div>
+        <div class="anno-rels">
+          <div class="anno-rels-label">Relationships</div>
+          <div class="anno-rel-rows">
+            <div class="anno-rel-row">
+              <span class="rel-source" style="background:var(--dx-bg);color:var(--dx)">DiagAnisometropicAmblyopia</span>
+              <span class="rel-arrow"><span class="rel-arrow-line"></span><span class="rel-name-tag">has_laterality</span><span class="rel-arrow-line"></span><span class="rel-arrow-tip">›</span></span>
+              <span class="rel-target" style="background:var(--lat-bg);color:var(--lat)">LateralityLeftEye</span>
+            </div>
+            <div class="anno-rel-row">
+              <span class="rel-source" style="background:var(--dx-bg);color:var(--dx)">DiagAnisometropicAmblyopia</span>
+              <span class="rel-arrow"><span class="rel-arrow-line"></span><span class="rel-name-tag">has_severity</span><span class="rel-arrow-line"></span><span class="rel-arrow-tip">›</span></span>
+              <span class="rel-target" style="background:var(--sev-bg);color:var(--sev)">SeveritySevere</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Example 2 -->
+    <div class="anno-example">
+      <div class="anno-example-head">Example 2 — HPI (caregiver report)</div>
+      <div class="anno-example-body">
+        <div class="anno-text">
+          Mom reports the <span class="span-lat" title="LateralityLeftEye">left eye</span> <span class="span-sx" title="SympCrossing">crosses</span>
+        </div>
+        <div class="anno-detail">
+          <div class="anno-span-detail detail-sx">
+            <div class="span-label">SympCrossing</div>
+            <div class="span-text-ref">"crosses"</div>
+            <div class="span-attrs">
+              <span class="attr-pill">assertion: present</span>
+              <span class="attr-pill">experiencer: patient</span>
+              <span class="attr-pill">temporality: current</span>
+            </div>
+          </div>
+          <div class="anno-span-detail detail-lat">
+            <div class="span-label">LateralityLeftEye</div>
+            <div class="span-text-ref">"left eye"</div>
+            <div class="span-attrs"><span class="attr-pill">note: caregiver report does NOT change experiencer → patient</span></div>
+          </div>
+        </div>
+        <div class="anno-rels">
+          <div class="anno-rels-label">Relationships</div>
+          <div class="anno-rel-rows">
+            <div class="anno-rel-row">
+              <span class="rel-source" style="background:var(--sx-bg);color:var(--sx)">SympCrossing</span>
+              <span class="rel-arrow"><span class="rel-arrow-line"></span><span class="rel-name-tag">has_laterality</span><span class="rel-arrow-line"></span><span class="rel-arrow-tip">›</span></span>
+              <span class="rel-target" style="background:var(--lat-bg);color:var(--lat)">LateralityLeftEye</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Example 3 -->
+    <div class="anno-example">
+      <div class="anno-example-head">Example 3 — Adherence</div>
+      <div class="anno-example-body">
+        <div class="anno-text">
+          She <span class="span-ad" title="AdherencePoor">never really wore</span> <span class="span-tx" title="TxGlasses">glasses</span>
+        </div>
+        <div class="anno-detail">
+          <div class="anno-span-detail detail-tx">
+            <div class="span-label">TxGlasses</div>
+            <div class="span-text-ref">"glasses"</div>
+            <div class="span-attrs"><span class="attr-pill">assertion: present</span></div>
+          </div>
+          <div class="anno-span-detail detail-ad">
+            <div class="span-label">AdherencePoor</div>
+            <div class="span-text-ref">"never really wore"</div>
+          </div>
+        </div>
+        <div class="anno-rels">
+          <div class="anno-rels-label">Relationships</div>
+          <div class="anno-rel-rows">
+            <div class="anno-rel-row">
+              <span class="rel-source" style="background:var(--tx-bg);color:var(--tx)">TxGlasses</span>
+              <span class="rel-arrow"><span class="rel-arrow-line"></span><span class="rel-name-tag">has_adherence</span><span class="rel-arrow-line"></span><span class="rel-arrow-tip">›</span></span>
+              <span class="rel-target" style="background:var(--ad-bg);color:var(--ad)">AdherencePoor</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Example 4 -->
+    <div class="anno-example">
+      <div class="anno-example-head">Example 4 — Treatment regimen</div>
+      <div class="anno-example-body">
+        <div class="anno-text">
+          <span class="span-tx" title="TxPatching">patch</span> <span class="span-tmp" title="TemporalFrequency">2 hours/day</span> <span class="span-tmp" title="TemporalDuration">for 3 months</span>
+        </div>
+        <div class="anno-detail">
+          <div class="anno-span-detail detail-tx">
+            <div class="span-label">TxPatching</div>
+            <div class="span-text-ref">"patch"</div>
+          </div>
+          <div class="anno-span-detail detail-tmp">
+            <div class="span-label">TemporalFrequency</div>
+            <div class="span-text-ref">"2 hours/day"</div>
+          </div>
+          <div class="anno-span-detail detail-tmp">
+            <div class="span-label">TemporalDuration</div>
+            <div class="span-text-ref">"for 3 months"</div>
+          </div>
+        </div>
+        <div class="anno-rels">
+          <div class="anno-rels-label">Relationships</div>
+          <div class="anno-rel-rows">
+            <div class="anno-rel-row">
+              <span class="rel-source" style="background:var(--tx-bg);color:var(--tx)">TxPatching</span>
+              <span class="rel-arrow"><span class="rel-arrow-line"></span><span class="rel-name-tag">has_regimen</span><span class="rel-arrow-line"></span><span class="rel-arrow-tip">›</span></span>
+              <span class="rel-target" style="background:var(--tmp-bg);color:var(--tmp)">TemporalFrequency</span>
+            </div>
+            <div class="anno-rel-row">
+              <span class="rel-source" style="background:var(--tx-bg);color:var(--tx)">TxPatching</span>
+              <span class="rel-arrow"><span class="rel-arrow-line"></span><span class="rel-name-tag">has_regimen</span><span class="rel-arrow-line"></span><span class="rel-arrow-tip">›</span></span>
+              <span class="rel-target" style="background:var(--tmp-bg);color:var(--tmp)">TemporalDuration</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Example 5 -->
+    <div class="anno-example">
+      <div class="anno-example-head">Example 5 — Status (deferred)</div>
+      <div class="anno-example-body">
+        <div class="anno-text">
+          <span class="span-stat" title="StatusDeferred">Will not</span> <span class="span-tx" title="TxPatching">patch</span> given age
+        </div>
+        <div class="anno-detail">
+          <div class="anno-span-detail detail-tx">
+            <div class="span-label">TxPatching</div>
+            <div class="span-text-ref">"patch"</div>
+          </div>
+          <div class="anno-span-detail detail-stat">
+            <div class="span-label">StatusDeferred</div>
+            <div class="span-text-ref">"Will not"</div>
+            <div class="span-attrs"><span class="attr-pill">"will not [treatment]" → always Deferred</span></div>
+          </div>
+        </div>
+        <div class="anno-rels">
+          <div class="anno-rels-label">Relationships</div>
+          <div class="anno-rel-rows">
+            <div class="anno-rel-row">
+              <span class="rel-source" style="background:var(--tx-bg);color:var(--tx)">TxPatching</span>
+              <span class="rel-arrow"><span class="rel-arrow-line"></span><span class="rel-name-tag">has_status</span><span class="rel-arrow-line"></span><span class="rel-arrow-tip">›</span></span>
+              <span class="rel-target" style="background:var(--stat-bg);color:var(--stat)">StatusDeferred</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Example 6 -->
+    <div class="anno-example">
+      <div class="anno-example-head">Example 6 — Family history</div>
+      <div class="anno-example-body">
+        <div class="anno-text">
+          <span class="span-fam" title="DiagStrabismus (experiencer=family)">Family history of strabismus</span>
+        </div>
+        <div class="anno-detail">
+          <div class="anno-span-detail detail-fam">
+            <div class="span-label">DiagStrabismus</div>
+            <div class="span-text-ref">"strabismus" (within phrase)</div>
+            <div class="span-attrs">
+              <span class="attr-pill">assertion: present</span>
+              <span class="attr-pill" style="background:#ede9fd;color:var(--proc)">experiencer: family ← changed</span>
+              <span class="attr-pill">temporality: current</span>
+            </div>
+            <div class="span-rels"><div class="span-rel-line">Trigger: "family history of" → experiencer=family</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- QUICK REFERENCE -->
+<section id="quickref" class="section">
+  <div class="section-header">
+    <span class="section-number">§ 10</span>
+    <div>
+      <div class="section-title">Quick Reference</div>
+      <div class="section-subtitle">At-a-glance lookup tables for attribute defaults and concept color codes.</div>
+    </div>
+  </div>
+
+  <h3>Attribute Defaults &amp; Override Triggers</h3>
+  <div class="qr-table-wrap">
+    <table class="qr-table">
+      <thead>
+        <tr>
+          <th>Attribute</th>
+          <th>Default</th>
+          <th>Override to…</th>
+          <th>Trigger phrase examples</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Assertion</strong></td>
+          <td><span class="qr-badge" style="background:#e8f5ee;color:#15803d">present</span></td>
+          <td><span class="qr-badge" style="background:#fdecea;color:#c0392b">absent</span></td>
+          <td>no, denies, without, ruled out, not consistent with</td>
+        </tr>
+        <tr>
+          <td><strong>Experiencer</strong></td>
+          <td><span class="qr-badge" style="background:#e8f5ee;color:#15803d">patient</span></td>
+          <td><span class="qr-badge" style="background:var(--proc-bg);color:var(--proc)">family</span></td>
+          <td>family history, mother has, father had, sibling with</td>
+        </tr>
+        <tr>
+          <td><strong>Temporality</strong></td>
+          <td><span class="qr-badge" style="background:#e8f5ee;color:#15803d">current</span></td>
+          <td><span class="qr-badge" style="background:#fdecea;color:#b45309">historical</span></td>
+          <td>previously, history of, s/p, resolved, no longer, stopped</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="margin-top:28px">Concept Color Codes</h3>
+  <div class="qr-table-wrap">
+    <table class="qr-table">
+      <thead>
+        <tr><th>Category</th><th>Abbr</th><th>Color</th><th>Key relationship</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Diagnosis</td><td><span class="qr-badge" style="background:var(--dx-bg);color:var(--dx)">Dx</span></td><td style="color:var(--dx)">■ Blue</td><td>has_laterality, has_severity, has_pattern, has_onset</td></tr>
+        <tr><td>Symptom</td><td><span class="qr-badge" style="background:var(--sx-bg);color:var(--sx)">Sx</span></td><td style="color:var(--sx)">■ Purple</td><td>has_laterality, has_onset, has_pattern, has_severity</td></tr>
+        <tr><td>Exam Finding</td><td><span class="qr-badge" style="background:var(--exam-bg);color:var(--exam)">Exam</span></td><td style="color:var(--exam)">■ Cyan</td><td>has_laterality, has_severity, has_pattern</td></tr>
+        <tr><td>Test / Clin. Measure</td><td><span class="qr-badge" style="background:var(--exam-bg);color:var(--exam)">Test/CM</span></td><td style="color:var(--exam)">■ Cyan</td><td>has_fixation_context</td></tr>
+        <tr><td>Treatment</td><td><span class="qr-badge" style="background:var(--tx-bg);color:var(--tx)">Tx</span></td><td style="color:var(--tx)">■ Green</td><td>has_adherence, has_regimen, has_status, has_phase, has_outcome</td></tr>
+        <tr><td>Procedure</td><td><span class="qr-badge" style="background:var(--proc-bg);color:var(--proc)">Proc</span></td><td style="color:var(--proc)">■ Indigo</td><td>temporality=historical common</td></tr>
+        <tr><td>Outcome</td><td><span class="qr-badge" style="background:var(--out-bg);color:var(--out)">Out</span></td><td style="color:var(--out)">■ Amber</td><td>Treatment has_outcome →</td></tr>
+        <tr><td>Adherence</td><td><span class="qr-badge" style="background:var(--ad-bg);color:var(--ad)">Ad</span></td><td style="color:var(--ad)">■ Pink</td><td>Treatment has_adherence →</td></tr>
+        <tr><td>Plan</td><td><span class="qr-badge" style="background:var(--plan-bg);color:var(--plan)">Plan</span></td><td style="color:var(--plan)">■ Teal</td><td>has_scheduling</td></tr>
+        <tr><td>SDoH</td><td><span class="qr-badge" style="background:var(--sdoh-bg);color:var(--sdoh)">SDoH</span></td><td style="color:var(--sdoh)">■ Orange</td><td>co-occurs with Adherence</td></tr>
+        <tr><td>Laterality</td><td><span class="qr-badge" style="background:var(--lat-bg);color:var(--lat)">Lat</span></td><td style="color:var(--lat)">■ Warm orange</td><td>← has_laterality</td></tr>
+        <tr><td>Severity</td><td><span class="qr-badge" style="background:var(--sev-bg);color:var(--sev)">Sev</span></td><td style="color:var(--sev)">■ Red</td><td>← has_severity</td></tr>
+        <tr><td>Pattern</td><td><span class="qr-badge" style="background:var(--pat-bg);color:var(--pat)">Pat</span></td><td style="color:var(--pat)">■ Teal</td><td>← has_pattern</td></tr>
+        <tr><td>Temporal</td><td><span class="qr-badge" style="background:var(--tmp-bg);color:var(--tmp)">Temp</span></td><td style="color:var(--tmp)">■ Yellow</td><td>← has_onset, has_regimen, has_scheduling</td></tr>
+        <tr><td>Status</td><td><span class="qr-badge" style="background:var(--stat-bg);color:var(--stat)">Stat</span></td><td style="color:var(--stat)">■ Violet</td><td>← has_status</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- CONCEPT INVENTORY -->
+<section id="inventory" class="section">
+  <div class="section-header">
+    <span class="section-number">Appendix</span>
+    <div>
+      <div class="section-title">Concept Inventory</div>
+      <div class="section-subtitle">All concepts available for annotation, organized by category. Use the search to find a specific concept by name or ID.</div>
+    </div>
+  </div>
+
+  <div class="inv-search-wrap">
+    <span class="inv-search-icon">⌕</span>
+    <input type="text" id="inv-search" placeholder="Search concepts…" oninput="filterInventory(this.value)">
+    <div class="inv-count" id="inv-count"></div>
+  </div>
+
+  <div id="inv-categories"></div>
+</section>
+
+</main>
+
+<script>
+// ── FLOWCHART ──
+const flowLogic = {
+  0: { yes: 1, no: 'stop-structured' },
+  1: { yes: 2, no: 'stop-template' },
+  2: { yes: 'stop-ros', no: 'go' }
+};
+const totalSteps = 3;
+let currentStep = 0;
+let history = [];
+
+function updateProgress() {
+  const prog = document.getElementById('flow-progress');
+  prog.innerHTML = '';
+  for (let i = 0; i < totalSteps; i++) {
+    const d = document.createElement('div');
+    d.className = 'flow-dot' + (i < history.length ? ' done' : (i === currentStep && typeof currentStep === 'number' ? ' current' : ''));
+    prog.appendChild(d);
+  }
+}
+
+function flowNext(step, answer) {
+  history.push(step);
+  document.querySelector(`.flow-step[data-step="${step}"]`).classList.remove('active');
+  const next = flowLogic[step][answer];
+  document.querySelector(`.flow-step[data-step="${next}"]`).classList.add('active');
+  if (typeof next === 'number') { currentStep = next; }
+  updateProgress();
+}
+
+function flowReset() {
+  document.querySelectorAll('.flow-step').forEach(s => s.classList.remove('active'));
+  document.querySelector('.flow-step[data-step="0"]').classList.add('active');
+  currentStep = 0;
+  history = [];
+  updateProgress();
+}
+
+updateProgress();
+
+// ── SEARCH ──
+function doSearch(query) {
+  const q = query.trim().toLowerCase();
+  const sections = document.querySelectorAll('.section');
+  if (!q) {
+    removeHighlights();
+    sections.forEach(s => s.style.opacity = '');
+    return;
+  }
+  removeHighlights();
+  const walker = (node) => {
+    if (node.nodeType === 3) {
+      const text = node.textContent;
+      const lower = text.toLowerCase();
+      if (lower.includes(q)) {
+        const span = document.createElement('span');
+        span.innerHTML = text.replace(new RegExp(`(${q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi'), '<mark class="search-highlight">$1</mark>');
+        node.parentNode.replaceChild(span, node);
+      }
+    } else if (node.nodeType === 1 && !['SCRIPT','STYLE'].includes(node.tagName)) {
+      Array.from(node.childNodes).forEach(walker);
+    }
+  };
+  sections.forEach(s => walker(s));
+}
+
+function removeHighlights() {
+  document.querySelectorAll('.search-highlight').forEach(m => {
+    const parent = m.parentNode;
+    parent.replaceChild(document.createTextNode(m.textContent), m);
+    parent.normalize();
+  });
+  document.querySelectorAll('section > span').forEach(s => {
+    const parent = s.parentNode;
+    while (s.firstChild) parent.insertBefore(s.firstChild, s);
+    parent.removeChild(s);
+  });
+}
+
+// ── NAV ACTIVE STATE ──
+const navLinks = document.querySelectorAll('.nav-link');
+function navTo(id) {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+const sectionNavMap = { hero: 0, overview: 0, decision: 1, eligible: 2, attributes: 3, relationships: 4, dodont: 5, concepts: 6, modifiers: 7, examples: 8, quickref: 9, inventory: 10 };
+const trackedSections = Array.from(document.querySelectorAll('section[id]'));
+
+function updateActiveNav() {
+  const mid = window.scrollY + window.innerHeight * 0.35;
+  let best = trackedSections[0];
+  for (const s of trackedSections) {
+    if (s.offsetTop <= mid) best = s;
+  }
+  const idx = sectionNavMap[best.id];
+  navLinks.forEach(l => l.classList.remove('active'));
+  if (idx !== undefined && navLinks[idx]) navLinks[idx].classList.add('active');
+}
+
+window.addEventListener('scroll', updateActiveNav, { passive: true });
+updateActiveNav();
+
+// ── CONCEPT INVENTORY ──
+const INVENTORY = [
+  {
+    id: 'ConceptsDiagnosis', label: 'Diagnosis', abbr: 'Dx',
+    color: 'var(--dx)', bg: 'var(--dx-bg)',
+    concepts: [
+      { id: 'DiagAmblyopia', name: 'Amblyopia', parent: '' },
+      { id: 'DiagStrabismicAmblyopia', name: 'Strabismic amblyopia', parent: 'DiagAmblyopia' },
+      { id: 'DiagDeprivationAmblyopia', name: 'Deprivation amblyopia', parent: 'DiagAmblyopia' },
+      { id: 'DiagMeridionalAmblyopia', name: 'Meridional amblyopia', parent: 'DiagAmblyopia' },
+      { id: 'DiagMixedAmblyopia', name: 'Mixed amblyopia', parent: 'DiagAmblyopia' },
+      { id: 'DiagRefractiveAmblyopia', name: 'Refractive amblyopia', parent: 'DiagAmblyopia' },
+      { id: 'DiagAnisometropicAmblyopia', name: 'Anisometropic amblyopia', parent: 'DiagRefractiveAmblyopia' },
+      { id: 'DiagIsoametropicAmblyopia', name: 'Isoametropic amblyopia', parent: 'DiagRefractiveAmblyopia' },
+      { id: 'DiagAccomodativeAmblyopia', name: 'Accommodative amblyopia', parent: 'DiagAmblyopia' },
+      { id: 'DiagAmblyopiaSuspect', name: 'Amblyopia suspect', parent: 'DiagAmblyopia' },
+      { id: 'DiagRiskOfAmblyopia', name: 'Risk of amblyopia', parent: 'DiagAmblyopia' },
+      { id: 'DiagStrabismus', name: 'Strabismus', parent: '' },
+      { id: 'DiagEsotropia', name: 'Esotropia', parent: 'DiagStrabismus' },
+      { id: 'DiagAccomodativeEsotropia', name: 'Accommodative esotropia', parent: 'DiagStrabismus' },
+      { id: 'DiagPartiallyAccomodativeEsotropia', name: 'Partially accommodative esotropia', parent: 'DiagStrabismus' },
+      { id: 'DiagExotropia', name: 'Exotropia', parent: 'DiagStrabismus' },
+      { id: 'DiagHypertropia', name: 'Hypertropia', parent: 'DiagStrabismus' },
+      { id: 'DiagHypotropia', name: 'Hypotropia', parent: 'DiagStrabismus' },
+      { id: 'DiagMicrostrabismus', name: 'Microstrabismus', parent: 'DiagStrabismus' },
+      { id: 'DiagDVD', name: 'DVD (Dissociated Vertical Deviation)', parent: 'DiagStrabismus' },
+      { id: 'DiagDHD', name: 'DHD (Dissociated Horizontal Deviation)', parent: 'DiagStrabismus' },
+      { id: 'DiagDissociationDeviation', name: 'Dissociation deviation', parent: 'DiagStrabismus' },
+      { id: 'DiagRefractiveError', name: 'Refractive error', parent: '' },
+      { id: 'DiagHyperopia', name: 'Hyperopia', syn: 'Hypermetropia', parent: 'DiagRefractiveError' },
+      { id: 'DiagMyopia', name: 'Myopia', parent: 'DiagRefractiveError' },
+      { id: 'DiagPathologicMyopia', name: 'Pathologic myopia', parent: 'DiagMyopia' },
+      { id: 'DiagAstigmatism', name: 'Astigmatism', parent: 'DiagRefractiveError' },
+      { id: 'DiagRegularAstigmatism', name: 'Regular astigmatism', parent: 'DiagAstigmatism' },
+      { id: 'DiagIrregularAstigmatism', name: 'Irregular astigmatism', parent: 'DiagAstigmatism' },
+      { id: 'DiagObliqueAstigmatism', name: 'Oblique astigmatism', parent: 'DiagAstigmatism' },
+      { id: 'DiagWithTheRuleAstigmatism', name: 'With-the-rule astigmatism', parent: 'DiagAstigmatism' },
+      { id: 'DiagAgainstTheRuleAstigmatism', name: 'Against-the-rule astigmatism', parent: 'DiagAstigmatism' },
+      { id: 'DiagAnisometropia', name: 'Anisometropia', parent: 'DiagRefractiveError' },
+      { id: 'DiagOtherEyeDisease', name: 'Other eye disease', parent: '' },
+      { id: 'DiagCataract', name: 'Cataract', parent: 'DiagOtherEyeDisease' },
+      { id: 'DiagPtosis', name: 'Ptosis', parent: 'DiagOtherEyeDisease' },
+      { id: 'DiagCornealScar', name: 'Corneal scar', parent: 'DiagOtherEyeDisease' },
+      { id: 'DiagAphakia', name: 'Aphakia', parent: 'DiagOtherEyeDisease' },
+      { id: 'DiagPseudophakia', name: 'Pseudophakia', parent: 'DiagOtherEyeDisease' },
+      { id: 'DiagUveitis', name: 'Uveitis', parent: 'DiagOtherEyeDisease' },
+      { id: 'DiagOtherNonEyeDisease', name: 'Other non-eye disease', parent: '' },
+      { id: 'DiagTrauma', name: 'Trauma', parent: '' },
+      { id: 'DiagObliqueMuscleDysfunction', name: 'Oblique muscle dysfunction', parent: '' },
+    ]
+  },
+  {
+    id: 'ConceptsSymptom', label: 'Symptom', abbr: 'Sx',
+    color: 'var(--sx)', bg: 'var(--sx-bg)',
+    concepts: [
+      { id: 'SympBlurredVision', name: 'Blurred vision', parent: '' },
+      { id: 'SympDecreasedVision', name: 'Decreased vision', parent: '' },
+      { id: 'SympDiplopia', name: 'Diplopia', parent: '' },
+      { id: 'SympSquinting', name: 'Squinting', parent: '' },
+      { id: 'SympEyeClosing', name: 'Eye closing', parent: '' },
+      { id: 'SympReadingDifficulty', name: 'Reading difficulty', parent: '' },
+      { id: 'SympEyeRubbing', name: 'Eye rubbing', parent: '' },
+      { id: 'SympPoorDepthPerception', name: 'Poor depth perception', parent: '' },
+      { id: 'SympClumsy', name: 'Clumsy', parent: '' },
+      { id: 'SympTrips', name: 'Tripping', parent: '' },
+      { id: 'SympFalls', name: 'Falling', parent: '' },
+      { id: 'SympClosesOneEyeBrightLight', name: 'Closes one eye in bright light', parent: '' },
+      { id: 'SympHeadTilting', name: 'Head tilt', parent: '' },
+      { id: 'SympCrossing', name: 'Crossing', parent: '' },
+      { id: 'SympDrifting', name: 'Drifting', parent: '' },
+      { id: 'SympEyeBurning', name: 'Eye burning', parent: '' },
+      { id: 'SympItching', name: 'Itching', parent: '' },
+      { id: 'SympRedness', name: 'Redness', parent: '' },
+      { id: 'SympWatering', name: 'Watering', parent: '' },
+      { id: 'SympLightSensitivity', name: 'Light sensitivity', parent: '' },
+      { id: 'SympAlignmentChange', name: 'Alignment change', parent: '' },
+      { id: 'SympVisionChangesFam', name: 'Vision changes (family reported)', parent: '' },
+      { id: 'SympVisionChangesPt', name: 'Vision changes (patient reported)', parent: '' },
+      { id: 'SympDizziness', name: 'Dizziness', parent: '' },
+      { id: 'SympHeadache', name: 'Headache', parent: '' },
+      { id: 'SympAsymptomatic', name: 'Asymptomatic', parent: '' },
+      { id: 'SympOther', name: 'Other symptom', parent: '' },
+    ]
+  },
+  {
+    id: 'ConceptsTest', label: 'Test', abbr: 'Test',
+    color: 'var(--exam)', bg: 'var(--exam-bg)',
+    concepts: [
+      { id: 'TestVisionScreening', name: 'Vision screening', parent: '' },
+      { id: 'TestVisualAcuity', name: 'Visual acuity test', parent: 'TestVisionScreening' },
+      { id: 'TestStereoacuityTesting', name: 'Stereoacuity test', parent: 'TestVisionScreening' },
+      { id: 'TestRefraction', name: 'Refraction', parent: '' },
+      { id: 'TestCycloplegicRefraction', name: 'Cycloplegic refraction', parent: 'TestRefraction' },
+      { id: 'TestStrabismusTest', name: 'Strabismus test', parent: '' },
+      { id: 'TestCoverTest', name: 'Cover test', parent: 'TestStrabismusTest' },
+      { id: 'TestAlternatingCoverTest', name: 'Alternating cover test', parent: 'TestCoverTest' },
+      { id: 'TestCoverUncoverTest', name: 'Cover-uncover test', parent: 'TestCoverTest' },
+      { id: 'TestSlitLampExam', name: 'Slit lamp exam', parent: '' },
+      { id: 'TestDialiatedExam', name: 'Dilated exam', parent: '' },
+    ]
+  },
+  {
+    id: 'ConceptsClinicalMeasure', label: 'Clinical Measure', abbr: 'CM',
+    color: 'var(--exam)', bg: 'var(--exam-bg)',
+    concepts: [
+      { id: 'ClinMVisualAcuity', name: 'Visual acuity', parent: '' },
+      { id: 'ClinMStereoacuity', name: 'Stereoacuity', parent: '' },
+      { id: 'ClinMRefraction', name: 'Refraction', parent: '' },
+      { id: 'ClinMOcularAlignment', name: 'Ocular alignment', parent: '' },
+    ]
+  },
+  {
+    id: 'ConceptsExamFinding', label: 'Exam Finding', abbr: 'Exam',
+    color: 'var(--exam)', bg: 'var(--exam-bg)',
+    concepts: [
+      { id: 'ExamReducedVisualAcuity', name: 'Reduced visual acuity', parent: '' },
+      { id: 'ExamAsymmetricVisualAcuity', name: 'Asymmetric visual acuity', parent: '' },
+      { id: 'ExamAbnormalStereopsis', name: 'Abnormal stereopsis', parent: '' },
+      { id: 'ExamSuppression', name: 'Suppression', parent: '' },
+      { id: 'ExamFixationPreference', name: 'Fixation preference', parent: '' },
+      { id: 'ExamEccentricFixation', name: 'Eccentric fixation', parent: '' },
+      { id: 'ExamPoorFixation', name: 'Poor fixation', parent: '' },
+      { id: 'ExamNoPreference', name: 'No preference', parent: '' },
+      { id: 'ExamAbnormalFixationPattern', name: 'Abnormal fixation pattern', parent: '' },
+      { id: 'ExamOcularMisalignment', name: 'Ocular misalignment', parent: '' },
+      { id: 'ExamOrthotropia', name: 'Orthotropia', parent: '' },
+      { id: 'ExamAbnormalHeadPosture', name: 'Abnormal head posture', parent: '' },
+      { id: 'ExamInterocularDifference1Line', name: 'Interocular difference (< 1 line)', parent: '' },
+      { id: 'ExamInterocularDifference2Line', name: 'Interocular difference (> 2 lines)', parent: '' },
+      { id: 'ExamAnteriorSegmentFinding', name: 'Anterior segment finding', parent: '' },
+      { id: 'ExamCataract', name: 'Cataract (exam)', parent: 'ExamAnteriorSegmentFinding' },
+      { id: 'ExamPtosis', name: 'Ptosis (exam)', parent: 'ExamAnteriorSegmentFinding' },
+      { id: 'ExamCornealOpacity', name: 'Corneal opacity', parent: 'ExamAnteriorSegmentFinding' },
+      { id: 'ExamAnteriorChamberAbnormality', name: 'Anterior chamber abnormality', parent: 'ExamAnteriorSegmentFinding' },
+      { id: 'ExamIrisAbnormality', name: 'Iris abnormality', parent: 'ExamAnteriorSegmentFinding' },
+      { id: 'ExamOther', name: 'Other exam finding', parent: '' },
+    ]
+  },
+  {
+    id: 'ConceptsTreatment', label: 'Treatment', abbr: 'Tx',
+    color: 'var(--tx)', bg: 'var(--tx-bg)',
+    concepts: [
+      { id: 'TxPatching', name: 'Patching', parent: '' },
+      { id: 'TxAtropinePenalizationTherapy', name: 'Atropine penalization therapy', parent: '' },
+      { id: 'TxAtropineLowDose', name: 'Low-dose atropine therapy', parent: '' },
+      { id: 'TxOpticalCorrection', name: 'Optical correction', parent: '' },
+      { id: 'TxGlasses', name: 'Glasses', parent: 'TxOpticalCorrection' },
+      { id: 'TxGlassesBifocal', name: 'Bifocal glasses', parent: 'TxGlasses' },
+      { id: 'TxContactLens', name: 'Contact lens correction', parent: 'TxOpticalCorrection' },
+      { id: 'TxDigitalBinocularTherapy', name: 'Digital binocular therapy', syn: 'Dichoptic treatment', parent: '' },
+      { id: 'TxBangerterFilter', name: 'Bangerter filter', parent: '' },
+      { id: 'TxSlideOnPatches', name: 'Slide-on patches', parent: '' },
+      { id: 'TxPrescription', name: 'Prescription', parent: '' },
+      { id: 'TxObservation', name: 'Observation', parent: '' },
+      { id: 'TxAnyAmblyopiaTreatment', name: 'Any amblyopia treatment', parent: '' },
+    ]
+  },
+  {
+    id: 'ConceptsProcedure', label: 'Procedure', abbr: 'Proc',
+    color: 'var(--proc)', bg: 'var(--proc-bg)',
+    concepts: [
+      { id: 'ProcedureOcularSurgery', name: 'Ocular surgery', parent: '' },
+      { id: 'ProcedureStrabismusSurgery', name: 'Strabismus surgery', parent: 'ProcedureOcularSurgery' },
+      { id: 'ProcedureCataractExtraction', name: 'Cataract extraction', syn: 'Lens extraction', parent: 'ProcedureOcularSurgery' },
+      { id: 'ProcedurePtosisRepair', name: 'Ptosis repair', syn: 'Ptosis surgery', parent: 'ProcedureOcularSurgery' },
+      { id: 'ProcedureOtherSurgery', name: 'Other surgery', parent: '' },
+    ]
+  },
+  {
+    id: 'ConceptsOutcome', label: 'Outcome', abbr: 'Out',
+    color: 'var(--out)', bg: 'var(--out-bg)',
+    concepts: [
+      { id: 'OutcomeResolvedAmblyopia', name: 'Resolved amblyopia', parent: '' },
+      { id: 'OutcomePlateauedResponse', name: 'Plateaued response', parent: '' },
+      { id: 'OutcomeReverseAmblyopia', name: 'Reverse amblyopia', parent: '' },
+      { id: 'OutcomeWellControlled', name: 'Well controlled', parent: '' },
+      { id: 'OutcomeGoodControlled', name: 'Good control', parent: '' },
+      { id: 'OutcomeFairControl', name: 'Fair control', parent: '' },
+      { id: 'OutcomePoorControlled', name: 'Poor control', parent: '' },
+      { id: 'OutcomeFailed', name: 'Failed', parent: '' },
+      { id: 'OutcomeAbnormal', name: 'Abnormal', parent: '' },
+      { id: 'OutcomeTreatmentComplication', name: 'Treatment complication', parent: '' },
+      { id: 'OutcomeBandageAllergy', name: 'Bandage allergy', parent: 'OutcomeTreatmentComplication' },
+      { id: 'OutcomeAtropineAllergy', name: 'Atropine allergy', parent: 'OutcomeTreatmentComplication' },
+      { id: 'OutcomeCouldNotTolerate', name: 'Could not tolerate', parent: 'OutcomeTreatmentComplication' },
+      { id: 'OutcomeSurgicalComplication', name: 'Surgical complication', parent: '' },
+    ]
+  },
+  {
+    id: 'ConceptsAdherence', label: 'Adherence', abbr: 'Ad',
+    color: 'var(--ad)', bg: 'var(--ad-bg)',
+    concepts: [
+      { id: 'AdherenceGood', name: 'Good adherence', parent: '' },
+      { id: 'AdherencePoor', name: 'Poor adherence', parent: '' },
+      { id: 'AdherencePartial', name: 'Partial adherence', parent: '' },
+      { id: 'AdherenceForgettingToPatch', name: 'Forgetting to patch', parent: '' },
+      { id: 'AdherencePatchRefusal', name: 'Patch refusal', parent: '' },
+      { id: 'AdherenceCaregiverDifficulty', name: 'Caregiver difficulty', parent: '' },
+      { id: 'AdherenceApptSchedulingDifficulty', name: 'Follow-up scheduling difficulty', parent: '' },
+      { id: 'AdherenceTreatmentSchedulingDifficulty', name: 'Treatment scheduling difficulty', parent: '' },
+      { id: 'AdherenceLostToFollowUp', name: 'Lost to follow-up', parent: '' },
+      { id: 'AdherenceLostGlasses', name: 'Lost glasses', parent: '' },
+      { id: 'AdherenceBrokenGlasses', name: 'Broken glasses', parent: '' },
+      { id: 'AdherenceReplacedGlasses', name: 'Replaced glasses', parent: '' },
+      { id: 'AdherenceWaitingforGlasses', name: 'Waiting for glasses', parent: '' },
+      { id: 'AdherenceUnabletoGetGlasses', name: 'Unable to get glasses', parent: '' },
+      { id: 'AdherenceIntereferenceWithActivities', name: 'Treatment interference with activities', parent: '' },
+      { id: 'AdherenceInconsistentSetting', name: 'Inconsistent setting (daycare, multiple homes)', parent: '' },
+      { id: 'AdherenceBandageAllergy', name: 'Bandage allergy', parent: '' },
+      { id: 'AdherenceAtropineAllergy', name: 'Atropine allergy', parent: '' },
+      { id: 'AdherenceBreakFromTreatment', name: 'Break from treatment', parent: '' },
+      { id: 'AdherenceTreatmentAttitude', name: 'Treatment attitude', parent: '' },
+      { id: 'AdherenceTreatmentAction', name: 'Treatment action', parent: '' },
+    ]
+  },
+  {
+    id: 'ConceptsPlan', label: 'Plan', abbr: 'Plan',
+    color: 'var(--plan)', bg: 'var(--plan-bg)',
+    concepts: [
+      { id: 'PlanFollowUp', name: 'Follow-up', parent: '' },
+      { id: 'PlanFollowUpOther', name: 'Non-amblyopia follow-up', parent: '' },
+      { id: 'PlanReferral', name: 'Referral', parent: '' },
+      { id: 'PlanMonitoringPlan', name: 'Monitoring plan', parent: '' },
+    ]
+  },
+  {
+    id: 'ConceptsSDOH', label: 'Social Determinants of Health', abbr: 'SDoH',
+    color: 'var(--sdoh)', bg: 'var(--sdoh-bg)',
+    concepts: [
+      { id: 'SDOHTransportation', name: 'Transportation', parent: '' },
+      { id: 'SDOHCaregiverAvailability', name: 'Caregiver availability', parent: '' },
+      { id: 'SDOHPatientAvailability', name: 'Patient availability', parent: '' },
+      { id: 'SDOHMedicalAnxietyPatient', name: 'Medical anxiety (patient)', parent: '' },
+      { id: 'SDOHMedicalAnxietyCaregiver', name: 'Medical anxiety (caregiver)', parent: '' },
+      { id: 'SDOHParentEducation', name: 'Parent education access and quality', parent: '' },
+      { id: 'SDOHCaregiverMedicalLiteracy', name: 'Caregiver medical literacy', parent: '' },
+      { id: 'SDOHHealthInsuranceCoverage', name: 'Health insurance coverage', parent: '' },
+      { id: 'SDOHVisionInsuranceCoverage', name: 'Vision insurance coverage', parent: '' },
+      { id: 'SDOHAccessToPrimaryCare', name: 'Access to primary care provider', parent: '' },
+      { id: 'SDOHAccessToHealthCare', name: 'Access to healthcare services', parent: '' },
+      { id: 'SDOHLivingContext', name: 'Living context', parent: '' },
+      { id: 'SDOHNeighborhoodSafety', name: 'Neighborhood safety', parent: '' },
+      { id: 'SDOHOccupationalHazards', name: 'Occupational hazards', parent: '' },
+      { id: 'SDOHDigitalAccess', name: 'Digital access', parent: '' },
+      { id: 'SDOHSocialContext', name: 'Social context', parent: '' },
+      { id: 'SDOHLanguage', name: 'Speaking language / language barrier', parent: '' },
+      { id: 'SDOHSocialSupport', name: 'Social support from family or friends', parent: '' },
+      { id: 'SDOHDiscrimination', name: 'Discrimination', parent: '' },
+      { id: 'SDOHSocialStigmaOfTreatment', name: 'Social stigma of treatment', parent: '' },
+      { id: 'SDOHEconomicStability', name: 'Economic stability', parent: '' },
+      { id: 'SDOHEmploymentStatus', name: 'Employment status', parent: '' },
+      { id: 'SDOHConditionsAffectingWork', name: 'Conditions affecting ability to work', parent: '' },
+      { id: 'SDOHAffordHousing', name: 'Ability to afford housing', parent: '' },
+      { id: 'SDOHAffordHealthcare', name: 'Ability to afford healthcare', parent: '' },
+      { id: 'SDOHAffordFood', name: 'Ability to afford food', parent: '' },
+    ]
+  },
+  {
+    id: 'ConceptsLaterality', label: 'Laterality', abbr: 'Lat',
+    color: 'var(--lat)', bg: 'var(--lat-bg)',
+    concepts: [
+      { id: 'LateralityLeftEye', name: 'Left eye', syn: 'OS', parent: '' },
+      { id: 'LateralityRightEye', name: 'Right eye', syn: 'OD', parent: '' },
+      { id: 'LateralityBothEyes', name: 'Both eyes', syn: 'OU', parent: '' },
+      { id: 'LateralityBothLeftRight', name: 'Both eyes (left > right)', syn: 'OU OS>OD', parent: '' },
+      { id: 'LateralityBothRightLeft', name: 'Both eyes (right > left)', syn: 'OU OD>OS', parent: '' },
+      { id: 'LateralityFellowEye', name: 'Fellow eye', parent: '' },
+      { id: 'LateralityAmblyopicEye', name: 'Amblyopic eye', parent: '' },
+      { id: 'LateralityAlternating', name: 'Alternating', parent: '' },
+    ]
+  },
+  {
+    id: 'ConceptsSeverity', label: 'Severity', abbr: 'Sev',
+    color: 'var(--sev)', bg: 'var(--sev-bg)',
+    concepts: [
+      { id: 'SeverityMild', name: 'Mild', parent: '' },
+      { id: 'SeverityModerate', name: 'Moderate', parent: '' },
+      { id: 'SeveritySevere', name: 'Severe', parent: '' },
+    ]
+  },
+  {
+    id: 'ConceptsPattern', label: 'Pattern', abbr: 'Pat',
+    color: 'var(--pat)', bg: 'var(--pat-bg)',
+    concepts: [
+      { id: 'PatternIntermittent', name: 'Intermittent', parent: '' },
+      { id: 'PatternConstant', name: 'Constant', parent: '' },
+      { id: 'PatternStable', name: 'Stable', parent: '' },
+      { id: 'PatternProgressive', name: 'Progressive', parent: '' },
+      { id: 'PatternWorsening', name: 'Worsening', parent: '' },
+      { id: 'PatternImproving', name: 'Improving', parent: '' },
+      { id: 'PatternRecurrent', name: 'Recurrent', parent: '' },
+      { id: 'PatternResidual', name: 'Residual', parent: '' },
+      { id: 'PatternIncreasing', name: 'Increasing', parent: '' },
+      { id: 'PatternDecreasing', name: 'Decreasing', parent: '' },
+      { id: 'PatternPersistent', name: 'Persistent', parent: '' },
+    ]
+  },
+  {
+    id: 'ConceptsFixationContext', label: 'Fixation Context', abbr: 'Fix',
+    color: 'var(--fix)', bg: 'var(--fix-bg)',
+    concepts: [
+      { id: 'FixationDistance', name: 'Distance', parent: '' },
+      { id: 'FixationNear', name: 'Near', parent: '' },
+    ]
+  },
+  {
+    id: 'ConceptsTemporal', label: 'Temporal', abbr: 'Temp',
+    color: 'var(--tmp)', bg: 'var(--tmp-bg)',
+    concepts: [
+      { id: 'TemporalDateTime', name: 'Date / Time', parent: '' },
+      { id: 'TemporalAge', name: 'Age (onset only)', parent: '' },
+      { id: 'TemporalFrequency', name: 'Frequency', parent: '' },
+      { id: 'TemporalDuration', name: 'Duration', parent: '' },
+    ]
+  },
+  {
+    id: 'ConceptsStatus', label: 'Status', abbr: 'Stat',
+    color: 'var(--stat)', bg: 'var(--stat-bg)',
+    concepts: [
+      { id: 'StatusNew', name: 'New', parent: '' },
+      { id: 'StatusContinued', name: 'Continued', parent: '' },
+      { id: 'StatusUnchanged', name: 'Unchanged', parent: '' },
+      { id: 'StatusStopped', name: 'Stopped', parent: '' },
+      { id: 'StatusRestarted', name: 'Restarted', parent: '' },
+      { id: 'StatusDeferred', name: 'Deferred', parent: '' },
+    ]
+  },
+  {
+    id: 'ConceptsPhase', label: 'Phase', abbr: 'Phas',
+    color: 'var(--proc)', bg: 'var(--proc-bg)',
+    concepts: [
+      { id: 'PhaseTapering', name: 'Tapering', parent: '' },
+      { id: 'PhaseTrial', name: 'Trial', parent: '' },
+    ]
+  },
+  {
+    id: 'ConceptsDose', label: 'Dose', abbr: 'Dose',
+    color: 'var(--out)', bg: 'var(--out-bg)',
+    concepts: [
+      { id: 'DoseDosage', name: 'Dosage', parent: '' },
+    ]
+  },
+];
+
+function buildInventory() {
+  const container = document.getElementById('inv-categories');
+  let totalCount = 0;
+  INVENTORY.forEach(cat => {
+    totalCount += cat.concepts.length;
+    const div = document.createElement('div');
+    div.className = 'inv-category';
+    div.dataset.catId = cat.id;
+
+    const rows = cat.concepts.map(c => {
+      const parentCell = c.parent ? `<span class="inv-parent">${c.parent}</span>` : '';
+      const synCell = c.syn ? `<span class="inv-syn">${c.syn}</span>` : '';
+      return `<tr class="inv-row" data-search="${(c.id + ' ' + c.name + ' ' + (c.syn||'')).toLowerCase()}">
+        <td><span class="inv-id">${c.id}</span></td>
+        <td><span class="inv-name">${c.name}</span></td>
+        <td>${synCell}</td>
+        <td>${parentCell}</td>
+      </tr>`;
+    }).join('');
+
+    div.innerHTML = `
+      <div class="inv-cat-header" onclick="toggleCat(this)">
+        <span class="inv-cat-badge" style="background:${cat.bg};color:${cat.color}">${cat.abbr}</span>
+        <span class="inv-cat-name">${cat.label}</span>
+        <span class="inv-cat-count">${cat.concepts.length} concepts</span>
+        <span class="inv-cat-toggle open">›</span>
+      </div>
+      <div class="inv-table-wrap">
+        <table class="inv-table">
+          <thead><tr><th>Concept ID</th><th>Preferred Name</th><th>Synonyms</th><th>Parent</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>`;
+    container.appendChild(div);
+  });
+  document.getElementById('inv-count').textContent = `${totalCount} concepts across ${INVENTORY.length} categories`;
+}
+
+function toggleCat(header) {
+  const wrap = header.nextElementSibling;
+  const toggle = header.querySelector('.inv-cat-toggle');
+  const isOpen = toggle.classList.contains('open');
+  wrap.style.display = isOpen ? 'none' : '';
+  toggle.classList.toggle('open', !isOpen);
+}
+
+function filterInventory(q) {
+  const query = q.trim().toLowerCase();
+  let visible = 0;
+  document.querySelectorAll('.inv-category').forEach(cat => {
+    const rows = cat.querySelectorAll('.inv-row');
+    let catVisible = 0;
+    rows.forEach(row => {
+      const match = !query || row.dataset.search.includes(query);
+      row.classList.toggle('inv-row-hidden', !match);
+      if (match) catVisible++;
+    });
+    // Auto-expand category if it has matches during search
+    const wrap = cat.querySelector('.inv-table-wrap');
+    const toggle = cat.querySelector('.inv-cat-toggle');
+    if (query && catVisible > 0) {
+      wrap.style.display = '';
+      toggle.classList.add('open');
+    }
+    cat.style.display = catVisible === 0 && query ? 'none' : '';
+    visible += catVisible;
+  });
+  const total = INVENTORY.reduce((s, c) => s + c.concepts.length, 0);
+  document.getElementById('inv-count').textContent = query
+    ? `${visible} of ${total} concepts match`
+    : `${total} concepts across ${INVENTORY.length} categories`;
+}
+
+buildInventory();
+</script>
+</body>
+</html>
